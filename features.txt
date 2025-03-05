@@ -23,7 +23,7 @@ Suche von Booten (ähnlich wie das Buch suchen)
 Mittelwichtige Features: 
 
 Als Mitarbeiter: 
-Logbuch ausleihen (ähnlich wie das ausleihen der Bücher im beispiel)
+Logbuch ausleihen (ähnlich wie das ausleihen der Bücher im)
 
 
 Nicht so wichtige Features:
