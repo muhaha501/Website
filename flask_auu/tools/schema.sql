@@ -175,13 +175,6 @@ CREATE TABLE IF NOT EXISTS "Status_der_Entlehnung" (
 
 /* ab hier die alte Datenbank */
 
-DROP TABLE IF EXISTS user;
-
-CREATE TABLE IF NOT EXISTS "user" (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  username TEXT UNIQUE NOT NULL,
-  password TEXT NOT NULL
-);
 
 CREATE TABLE IF NOT EXISTS "Personen" (
 	"PANr" NUMBER(5),
