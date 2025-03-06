@@ -306,7 +306,7 @@ CREATE TABLE IF NOT EXISTS  "Buch_Versionen"
 	CONSTRAINT fk_Buch_Versionen_Buecher FOREIGN KEY (ISBN) REFERENCES Buecher (ISBN) ON DELETE CASCADE
 	);
 
-CREATE TABLE Buch_Exemplare
+CREATE TABLE IF NOT EXISTS Buch_Exemplare
 	(
 	Inventarnr NUMBER(5),
 	ISBN TEXT(20)

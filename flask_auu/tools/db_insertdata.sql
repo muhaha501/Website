@@ -2,19 +2,59 @@
 /* last update 07 Maerz 23 */
 /* syntax differs from univ lib in https://edu.dedisys.org/WBTServer/faces/main.jsp */
 
-/*pw: Go4one! */
+/*pw: Go4one! */ /* dieser wird ein Passagier */
 Insert into user (username, password) values ('1234', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
-/*pw: Go4one! */
+/*pw: Go4one! */ /* dieser wird ein Passagier */
 Insert into user (username, password) values ('2345', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
-/*pw: Go4one! */
+/*pw: Go4one! */ /* dieser wird ein Passagier */
 Insert into user (username, password) values ('3456', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
-/*pw: Go4one! */
+/*pw: Go4one! */ /* dieser wird ein Mitarbeiter und Techniker */
 Insert into user (username, password) values ('7754', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
-/*pw: Go4two! */
+/*pw: Go4one! */ /* dieser wird ein Mitarbeiter und Techniker */
+Insert into user (username, password) values ('7457', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
+/*pw: Go4two! */ /* dieser wird ein Mitarbeiter und Kapitaen */
 Insert into user (username, password) values ('6834', 'pbkdf2:sha256:260000$mpqrArAgux5YGorA$aeda075bfc2657fc7ff500ed15901e591ad81080920aa22121cb90ce758c855b');
+/*pw: Go4two! */ /* dieser wird ein Mitarbeiter und Kapitaen */
+Insert into user (username, password) values ('6541', 'pbkdf2:sha256:260000$mpqrArAgux5YGorA$aeda075bfc2657fc7ff500ed15901e591ad81080920aa22121cb90ce758c855b');
 /*pw: guest! */
 Insert into user (username, password) values ('guest', 'pbkdf2:sha256:260000$MzkPXrPPnl7F5dN7$11fed544bf7be1e520e908eaaea1222d62e3b567b36853a68116b617ae75882f');
 
+
+/*UNSERE DATEN FUER SCHIFFSFAHRT*/
+
+/*Passagiere*/
+Insert into PERSONEN (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('1234','01.10.95','Max','Dre','9613','Wien','Hauptstrasse','38');
+Insert into PERSONEN (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('2345','15.05.90', 'Anna', 'Müller', '1020', 'Wien', 'Ringstrasse', '12');
+Insert into PERSONEN (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('3456','22.11.85', 'Lukas', 'Schmidt', '8010', 'Graz', 'Bahnhofstrasse', '5');
+Insert into PERSONEN (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('4711','03.07.88', 'Sophie', 'Maier', '5020', 'Salzburg', 'Mozartplatz', '7');
+Insert into PERSONEN (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('5588','09.09.92', 'Felix', 'Huber', '4020', 'Linz', 'Landstrasse', '20');
+/*Mitarbeiter Kapitaen*/
+Insert into PERSONEN (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('6541','18.12.97', 'Laura', 'Wagner', '6900', 'Bregenz', 'Seestrasse', '3');
+Insert into PERSONEN (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('6834','25.03.89', 'Thomas', 'Bauer', '6020', 'Innsbruck', 'Bergstrasse', '14');
+/*Mitarbeiter Techniker*/
+Insert into PERSONEN (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('7457','30.06.94', 'Julia', 'Lehner', '3500', 'Krems', 'Donauweg', '9');
+Insert into PERSONEN (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('7754','05.08.91', 'Michael', 'Fischer', '2340', 'Mödling', 'Schulweg', '22');
+Insert into PERSONEN (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('8832','12.04.96', 'Clara', 'Beck', '3100', 'St. Pölten', 'Marktplatz', '11');
+Insert into PERSONEN (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('9912','17.02.93', 'Daniel', 'Gruber', '4400', 'Steyr', 'Lindenweg', '6');
+Insert into PERSONEN (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('9999','29.09.98', 'Sarah', 'Hofer', '7000', 'Eisenstadt', 'Hauptplatz', '15');
+
+INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ("0676/7894561","1234");
+INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ("02742/12744","1234");
+INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ("0664/6487554","9999");
+INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ("0677/8947564","7754");
+INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ("0676/1247896","7457");
+INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ("0664/4548851","2345");
+
+INSERT into Angestellter_besitzt_Gehaltskonto
+
+INSERT into Bank
+
+INSERT into 
+
+
+
+
+/*ALTE DATEN DER UNIVERSITAET*/
 
 Insert into PERSONEN (PANR,VORNAME,NACHNAME,PLZ,ORT,STRASSE,HNR,GEBDATUM) values ('1234','Max','Dre','96123','AL','BL','38','01.10.95');
 Insert into PERSONEN (PANR,VORNAME,NACHNAME,PLZ,ORT,STRASSE,HNR,GEBDATUM) values ('2345','Lunda','Lindt','96124','VT','RT','38','01.10.99');

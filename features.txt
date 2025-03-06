@@ -3,7 +3,7 @@ Folgende Features sind möglicherweise zum abarbeiten
 Allgemeine to Dos:
 
 Überprüfung der Datenbankstruktur   
-Befüllen der Datenbank mit Daten    
+Befüllen der Datenbank mit Daten    Working on by Niklas
 
 
 Wichtige Features:
