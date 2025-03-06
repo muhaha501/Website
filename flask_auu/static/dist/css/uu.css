@@ -60,6 +60,8 @@ form{
 .carousel-caption {
   bottom: 3rem;
   z-index: 10;
+  color:#00476A;
+  text-shadow: 0 0 4px #fff;
 }
 
 /* Declare heights because of positioning of img element */
