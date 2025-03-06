@@ -45,13 +45,73 @@ INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ("0677/8947564","7754");
 INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ("0676/1247896","7457");
 INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ("0664/4548851","2345");
 
-INSERT into Angestellter_besitzt_Gehaltskonto
+INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1001', 6541, 'AT12345678901234567890', 3500.00, 10000);
+INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1002', 6834, 'AT23456789012345678901', 4200.50, 20000);
+INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1003', 7457, 'AT34567890123456789012', 5000.00, 30000);
+INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1004', 7754, 'AT45678901234567890123', 3300.75, 40000);
+INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1005', 8832, 'AT56789012345678901234', 4800.20, 50000);
+INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1006', 9912, 'AT67890123456789012345', 5500.00, 10000);
+INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1007', 9999, 'AT78901234567890123456', 6000.00, 20000);
 
-INSERT into Bank
+INSERT into Bank (Name, BLZ) values ('Deutsche Bank', 10000);
+INSERT into Bank (Name, BLZ) values ('Hypo Landesbank', 20000);
+INSERT into Bank (Name, BLZ) values ('Sparkasse', 30000);
+INSERT into Bank (Name, BLZ) values ('Volksbank', 40000);
+INSERT into Bank (Name, BLZ) values ('ING', 50000);
 
-INSERT into 
+
+INSERT into Passage (Passagennummer, Abfahrtszeit, Ankunftszeit, Abfahrtshafen, Zielfhafen) VALUES ("PS10001", '08:30', '12:00', 'Wien', 'Krems');
+INSERT into Passage (Passagennummer, Abfahrtszeit, Ankunftszeit, Abfahrtshafen, Zielfhafen) VALUES ("PS10002", '14:00', '18:30', 'Krems', 'Linz');
+INSERT into Passage (Passagennummer, Abfahrtszeit, Ankunftszeit, Abfahrtshafen, Zielfhafen) VALUES ("PS10003", '09:45', '13:15', 'Tulln', 'Melk');
+INSERT into Passage (Passagennummer, Abfahrtszeit, Ankunftszeit, Abfahrtshafen, Zielfhafen) VALUES ("PS10004", '12:20', '21:00', 'Wien', 'Belgrad');
+INSERT into Passage (Passagennummer, Abfahrtszeit, Ankunftszeit, Abfahrtshafen, Zielfhafen) VALUES ("PS10005", '07:00', '11:45', 'Budapest', 'Wien');
 
 
+INSERT into Passagier (PassagierNr, PANr) values ("P-12564",1234);
+INSERT into Passagier (PassagierNr, PANr) values ("P-45687",2345);
+INSERT into Passagier (PassagierNr, PANr) values ("P-25864",3456);
+INSERT into Passagier (PassagierNr, PANr) values ("P-87954",4711);
+INSERT into Passagier (PassagierNr, PANr) values ("P-31456",5588);
+
+INSERT into Kapitaen (KapitaenpatentNr,Seemeilen,PANr) values ("K-12345",1512,6541);
+INSERT into Kapitaen (KapitaenpatentNr,Seemeilen,PANr) values ("K-90001",984,6834);
+
+INSERT into Techniker (Lizenznummer,Ausbildung,Typennummer,PANr) values ('T-12345',"HTL","DS006",7457);
+INSERT into Techniker (Lizenznummer,Ausbildung,Typennummer,PANr) values ('T-45648',"Hochschule","DS001",7754);
+INSERT into Techniker (Lizenznummer,Ausbildung,Typennummer,PANr) values ('T-00011',"HTL","DS003",8832);
+INSERT into Techniker (Lizenznummer,Ausbildung,Typennummer,PANr) values ('T-13001',"Hochschule","DS002",9912);
+INSERT into Techniker (Lizenznummer,Ausbildung,Typennummer,PANr) values ('T-87400',"Hochschule","DS004",9999);
+
+
+INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS001', 46328, 860, 'Raddampfer', 'Meyer Werft');
+INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS002', 52310, 920, 'Passagierdampfer', 'Fincantieri');
+INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS003', 34800, 500, 'Frachtschiff', 'Meyer Werft');
+INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS004', 29800, 400, 'Flussschiff', 'Damen Shipyards');
+INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS005', 58900, 1100, 'Ozeandampfer', 'Hyundai Heavy Industries');
+INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS006', 154000, 1800, 'Passagierdampfer', 'Hyundai Heavy Industries');
+
+INSERT into Hersteller (Herstellername) values ("Meyer Werft");
+INSERT into Hersteller (Herstellername) values ("Hyundai Heavy Industries");
+INSERT into Hersteller (Herstellername) values ("STX Europe");
+INSERT into Hersteller (Herstellername) values ("Fincantieri");
+INSERT into Hersteller (Herstellername) values ("Damen Shipyards");
+
+INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennummer, LogbuchNr) values ('SE1001', 1999, 500000, 'DS001', 'LB001');
+INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennummer, LogbuchNr) values ('SE1002', 2005, 750000, 'DS002', 'LB002');
+INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennummer, LogbuchNr) values ('SE1003', 2010, 350000, 'DS003', 'LB003');
+INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennummer, LogbuchNr) values ('SE1004', 2015, 400000, 'DS004', 'LB004');
+INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennummer, LogbuchNr) values ('SE1005', 2018, 150000, 'DS005', 'LB005');
+INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennummer, LogbuchNr) values ('SE1006', 2012, 200000, 'DS001', 'LB006');
+INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennummer, LogbuchNr) values ('SE1007', 2016, 220000, 'DS003', 'LB007');
+INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennummer, LogbuchNr) values ('SE1008', 2020, 180000, 'DS002', 'LB008');
+INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennummer, LogbuchNr) values ('SE1009', 2017, 300000, 'DS004', 'LB009');
+INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennummer, LogbuchNr) values ('SE1010', 2021, 250000, 'DS005', 'LB010');
+
+INSERT into Buchen
+
+INSERT into Fahren
+
+INSERT into Status_der_Entlehnung
 
 
 /*ALTE DATEN DER UNIVERSITAET*/

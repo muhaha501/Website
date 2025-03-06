@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS "Telefonnummer" (
 );
 
 CREATE TABLE IF NOT EXISTS "Angestellter_besitzt_Gehaltskonto" (
-    "AngestelltenNr" NUMBER(4)
+    "AngestelltenNr" TEXT(10)
         CONSTRAINT nn_AngestelltenNr_Angestellter_besitzt_Gehaltskonto NOT NULL,
     "PANr" NUMBER (4),
     "Kontonummer" TEXT (20)
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS "Bank" (
 
 /*Zeiten als text gespeichert vll bei der implementierung aenderung auf INT */
 CREATE TABLE IF NOT EXISTS "Passage" (
-    "Passagennummer" NUMBER(5),
+    "Passagennummer" TEXT(10),
     "Abfahrtszeit" TEXT(10),
     "Ankunftszeit" TEXT(10),
     "Abfahrtshafen" TEXT(20),
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS "Passage" (
 /* implementierung folgepassage missing */
 
 CREATE TABLE IF NOT EXISTS "Passagier" (
-    "PassagierNr" NUMBER(5),
+    "PassagierNr" TEXT(10),
     "PANr" NUMBER(4)
         CONSTRAINT nn_PANr_Passagier NOT NULL,
     CONSTRAINT pk_Passagier PRIMARY KEY (PassagierNr),
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS "Passagier" (
 );
 
 CREATE TABLE IF NOT EXISTS "Kapitaen" (
-    "KapitaenpatentNr" NUMBER(5),
+    "KapitaenpatentNr" TEXT(10),
     "Seemeilen" NUMBER(10),
     "PANr" NUMBER(4)
         CONSTRAINT nn_PANr_Kapitaen,
@@ -92,9 +92,9 @@ CREATE TABLE IF NOT EXISTS "Kapitaen" (
 );
 
 CREATE TABLE IF NOT EXISTS "Techniker" (
-    "Lizenznummer" NUMBER(5),
+    "Lizenznummer" TEXT(10),
     "Ausbildung" TEXT(20),
-    "Typennummer" NUMBER(5)
+    "Typennummer" TEXT(10)
         CONSTRAINT nn_Typennummer_Techniker NOT NULL,
     "PANr" NUMBER(4)
         CONSTRAINT nn_PANr_Techniker NOT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS "Techniker" (
 );
 
 CREATE TABLE IF NOT EXISTS "Schiffstyp" (
-    "Typennummer" NUMBER(5),
+    "Typennummer" TEXT(10),
     "Bruttoregistertonnen" NUMBER(10),
     "Besatzungsstaerke" NUMBER(5),
     "Typenbezeichnung" TEXT(20),
@@ -123,13 +123,13 @@ CREATE TABLE IF NOT EXISTS "Hersteller" (
 
 /* wenn logbuch geloescht auch Schiff geloescht */
 CREATE TABLE IF NOT EXISTS "Schiffexemplar_hat_Logbuch" (
-    "InventarNr" NUMBER(5)
+    "InventarNr" TEXT(10)
         CONSTRAINT nn_InventarNr_Schiffexemplar_hat_Logbuch NOT NULL,
     "Baujahr" NUMBER(4),
     "Seemeilen" NUMBER(10),
-    "Typennummer" NUMBER(5)
+    "Typennummer" TEXT(10)
         CONSTRAINT nn_Typennummer_Schiffexemplar_hat_Logbuch NOT NULL,
-    "LogbuchNr" NUMBER(5),
+    "LogbuchNr" TEXT(10),
     CONSTRAINT pk_Schiffexemplar_hat_Logbuch PRIMARY KEY (LogbuchNr),
     CONSTRAINT fk_Schiffexemplar_hat_Logbuch_Schiffstyp FOREIGN KEY (Typennummer) REFERENCES Schiffstyp (Typennummer)
         ON DELETE CASCADE
@@ -137,12 +137,12 @@ CREATE TABLE IF NOT EXISTS "Schiffexemplar_hat_Logbuch" (
 
 /* Datum als INTEGER wie gebdatum */
 CREATE TABLE IF NOT EXISTS "Buchen" (
-    "Buchungsnummer" NUMBER(5),
+    "Buchungsnummer" TEXT(10),
     "Datum" INTEGER,
     "Klasse" NUMBER(1),
-    "PassagierNr" NUMBER(5)
+    "PassagierNr" TEXT(10)
         CONSTRAINT nn_PassagierNR_Buchen NOT NULL,
-    "Passagennummer" NUMBER(5)
+    "Passagennummer" TEXT(10)
         CONSTRAINT nn_Passagennummer_Buchen NOT NULL,
     CONSTRAINT pk_Buchen PRIMARY KEY (Buchungsnummer),
     CONSTRAINT fk_Buchen_Passagier FOREIGN KEY (PassagierNr) REFERENCES Passagier (PassagierNr),
@@ -151,9 +151,9 @@ CREATE TABLE IF NOT EXISTS "Buchen" (
 
 /* Kapitaen fahren schiffe evtl name aendern */
 CREATE TABLE IF NOT EXISTS "Fahren" (
-    "KapitaenpatentNr" NUMBER(5),
-    "Typennummer" NUMBER(5),
-    "Passagennummer" NUMBER(5),
+    "KapitaenpatentNr" TEXT(10),
+    "Typennummer" TEXT(10),
+    "Passagennummer" TEXT(10),
     CONSTRAINT pk_Fahren PRIMARY KEY (KapitaenpatentNr, Typennummer, Passagennummer),
     CONSTRAINT fk_Fahren_Kapitaen FOREIGN KEY (KapitaenpatentNr) REFERENCES Kapitaen (KapitaenpatentNr),
     CONSTRAINT fk_Fahren_Schiffstyp FOREIGN KEY (Typennummer) REFERENCES Schiffstyp (Typennummer),
@@ -162,13 +162,13 @@ CREATE TABLE IF NOT EXISTS "Fahren" (
 
 /* Das spannende thema mal schaun ob diese implementierung funktioniert */
 CREATE TABLE IF NOT EXISTS "Status_der_Entlehnung" (
-    "LogbuchNr" NUMBER(5),
-    "KapitaenpatentNr" NUMBER(5),
-    "TechnikerNr" NUMBER(5),
+    "LogbuchNr" TEXT(10),
+    "KapitaenpatentNr" TEXT(10),
+    "TechnikerNr" TEXT(10),
     CONSTRAINT pk_Status_der_Entlehnung PRIMARY KEY (LogbuchNr),
     CONSTRAINT fk_Status_der_Entlehnung_Logbuch FOREIGN KEY (LogbuchNr) REFERENCES Schiffexemplar_hat_Logbuch (LogbuchNr),
     CONSTRAINT fk_Status_der_Entlehnung_Kapitaen FOREIGN KEY (KapitaenpatentNr) REFERENCES Kapitaen (KapitaenpatentNr),
-    CONSTRAINT fk_Status_der_Entlehnung_Techniker FOREIGN KEY (TechnikerNr) REFERENCES Techniker (TechnikerNr),
+    CONSTRAINT fk_Status_der_Entlehnung_Techniker FOREIGN KEY (TechnikerNr) REFERENCES Techniker (Lizenznummer),
     CONSTRAINT special_Status_der_Entlehnung CHECK ((KapitaenpatentNr IS NULL AND TechnikerNr IS NOT NULL) OR (KapitaenpatentNr IS NOT NULL AND TechnikerNr IS NULL))
 );
 
