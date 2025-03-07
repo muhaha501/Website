@@ -54,6 +54,10 @@ def create_app(test_config=None):
     app.register_blueprint(exams.bp)
     app.add_url_rule('/exams', endpoint='exams')
 
+    from . import bookings
+    app.register_blueprint(bookings.bp)
+    app.add_url_rule('/bookings', endpoint='bookings')
+
     from . import library
     app.register_blueprint(library.bp)
     app.add_url_rule('/library', endpoint='search')
