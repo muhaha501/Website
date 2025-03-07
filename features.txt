@@ -1,0 +1,45 @@
+Folgende Features sind möglicherweise zum abarbeiten
+
+Allgemeine to Dos:
+
+Überprüfung der Datenbankstruktur   
+Befüllen der Datenbank mit Daten    Working on by Niklas
+
+
+Wichtige Features:
+
+Unterschied ob als Mitarbeiter oder als Passagier eingeloggt 
+
+Als Passagier:
+Vergangene Buchungen (ähnlich wie das exams im beispiel)
+Geplante Buchungen 
+
+Als Mitarbeiter:
+Bisherige Fahrten anzeigen (ähnlich wie das exams im beispiel)
+Zukünftige Fahrten anzeigen
+Suche von Booten (ähnlich wie das Buch suchen)
+
+
+Mittelwichtige Features: 
+
+Als Mitarbeiter: 
+Logbuch ausleihen (ähnlich wie das ausleihen der Bücher im)
+
+
+Nicht so wichtige Features:
+
+Als Passagier:
+Ansehen möglicher Buchungen (in der Zukunft)
+Buchungen durchführen? (Achtung wegen Überschneidungen)
+
+Als Mitarbeiter:
+
+Stats als Kapitän (Meilen, Anzahl Fahrten mit Boot)
+Same für Techniker
+
+Allgemein:
+Fix Registration als Passagier
+
+
+Weiter ideen:
+
