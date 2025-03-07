@@ -11,7 +11,7 @@ Wichtige Features:
 Unterschied ob als Mitarbeiter oder als Passagier eingeloggt 
 
 Als Passagier:
-Vergangene Buchungen (ähnlich wie das exams im beispiel)
+Vergangene Buchungen (ähnlich wie das exams im beispiel) --> Sebastian 
 Geplante Buchungen 
 
 Als Mitarbeiter:
