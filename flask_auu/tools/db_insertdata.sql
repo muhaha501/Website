@@ -61,11 +61,11 @@ INSERT into Bank (Name, BLZ) values ('Volksbank', 40000);
 INSERT into Bank (Name, BLZ) values ('ING', 50000);
 
 
-INSERT into Passage (Passagennummer, Abfahrtszeit, Ankunftszeit, Abfahrtshafen, Zielfhafen) VALUES ('PS10001', '08:30', '12:00', 'Wien', 'Krems');
-INSERT into Passage (Passagennummer, Abfahrtszeit, Ankunftszeit, Abfahrtshafen, Zielfhafen) VALUES ('PS10002', '14:00', '18:30', 'Krems', 'Linz');
-INSERT into Passage (Passagennummer, Abfahrtszeit, Ankunftszeit, Abfahrtshafen, Zielfhafen) VALUES ('PS10003', '09:45', '13:15', 'Tulln', 'Melk');
-INSERT into Passage (Passagennummer, Abfahrtszeit, Ankunftszeit, Abfahrtshafen, Zielfhafen) VALUES ('PS10004', '12:20', '21:00', 'Wien', 'Belgrad');
-INSERT into Passage (Passagennummer, Abfahrtszeit, Ankunftszeit, Abfahrtshafen, Zielfhafen) VALUES ('PS10005', '07:00', '11:45', 'Budapest', 'Wien');
+INSERT into Passage (Passagennummer, Abfahrtszeit, Ankunftszeit, Abfahrtshafen, Zielhafen) VALUES ('PS10001', '08:30', '12:00', 'Wien', 'Krems');
+INSERT into Passage (Passagennummer, Abfahrtszeit, Ankunftszeit, Abfahrtshafen, Zielhafen) VALUES ('PS10002', '14:00', '18:30', 'Krems', 'Linz');
+INSERT into Passage (Passagennummer, Abfahrtszeit, Ankunftszeit, Abfahrtshafen, Zielhafen) VALUES ('PS10003', '09:45', '13:15', 'Tulln', 'Melk');
+INSERT into Passage (Passagennummer, Abfahrtszeit, Ankunftszeit, Abfahrtshafen, Zielhafen) VALUES ('PS10004', '12:20', '21:00', 'Wien', 'Belgrad');
+INSERT into Passage (Passagennummer, Abfahrtszeit, Ankunftszeit, Abfahrtshafen, Zielhafen) VALUES ('PS10005', '07:00', '11:45', 'Budapest', 'Wien');
 
 
 INSERT into Passagier (PassagierNr, PANr) values ('P-12564',1234);

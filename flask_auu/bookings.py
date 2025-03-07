@@ -1,3 +1,4 @@
+import datetime 
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
@@ -18,22 +19,34 @@ def bookings():
     flash(session['history'])
 
     db = get_db()
-    matrnrper = db.execute(
-            'SELECT vorname, nachname, gebdatum, passagiernr' 
-            'From Person, Passagier'
-            'WHERE Person.PANr = Passagier.PANr and Person.PANr = ?', (g.user['username'],)
+    passpers = db.execute(
+            'SELECT Vorname, Nachname, Gebdatum, Passagiernr' 
+            ' FROM Person, Passagier'
+            ' WHERE Person.PANr = Passagier.PANr and Person.PANr = ? ', (g.user['username'],)
     ).fetchone()
 
+
+
+    now = datetime.datetime.now()
+
+    now = now.strftime("%d." "%m." "%Y")
+
     #DEBUG: print(matrnrper, flush=True)
-    examlist = None
-    if matrnrper is not None:
-        examlist = db.execute(
+    bookinglist_future = None
+    bookinglist_past = None
+    if passpers is not None:
+        bookinglist_future = db.execute(
             #Remark: " instead of ' because of SQL internal string concatenation
-            "SELECT (pe.vorname||' '||pe.nachname) Pruefer, v.V_Bezeichnung Vorlesung, Note, SWS ECTS"
-            " FROM Prueft pr, Personen pe, Vorlesungen v"
-            " WHERE pr.PAnr=pe.PAnr and pr.V_Bezeichnung=v.V_Bezeichnung"
-            " and pr.Matrikelnummer = ?", (matrnrper['Matrikelnummer'],)
+            'SELECT buchungsnummer, datum, klasse, abfahrtszeit, ankunftszeit, abfahrtshafen, zielhafen'
+            ' FROM Buchen, Passage'
+            ' WHERE Buchen.Passagennummer = Passage.Passagennummer AND Buchen.PassagierNr = ? and Datum >= ?', (passpers['PassagierNr'],now,)
         ).fetchall()
+        bookinglist_past = db.execute(
+            #Remark: " instead of ' because of SQL internal string concatenation
+            'SELECT buchungsnummer, datum, klasse, abfahrtszeit, ankunftszeit, abfahrtshafen, zielhafen'
+            ' FROM Buchen, Passage'
+            ' WHERE Buchen.Passagennummer = Passage.Passagennummer AND Buchen.PassagierNr = ? and Datum < ?', (passpers['PassagierNr'],now,)
+        ).fetchall()    
     else:
-        return render_template('guest/guest.html',)
-    return render_template('bookings/bookings.html', matrnrper=matrnrper, examlist=examlist)
+        return render_template('non_passagier/non_passagier.html',) 
+    return render_template('bookings/bookings.html', passpers=passpers, bookinglist_future=bookinglist_future, bookinglist_past=bookinglist_past, timenow = now) 

@@ -10,35 +10,59 @@
 <div class="container marketing">
 
     <!-- START THE FEATURETTES -->
-    <div class="signpost"><h1>Exams/ Exams</h1></div>
+    <div class="signpost"><h1>Bookings/ Bookings</h1></div>
 
     <hr class="featurette-divider">
 
     <div class="row featurette">
         <div class="col-md-7">
-            <h2 class="featurette-heading">Exam results</h2>
+            <h2 class="featurette-heading">Bookings</h2>
             <p class="lead">Full list.</p>
 
-         <p> Exam results for PANr {{ g.user['username'] }}, {{ matrnrper['vorname'] }} {{ matrnrper['nachname'] }}, student id {{ matrnrper['gebdatum'] }},
-             studying {{ matrnrper['passagiernr'] }}. </p>
+         <p> Bookings results for PANr {{ g.user['username'] }}, {{ passpers['vorname'] }} {{ passpers['nachname'] }}, born on {{ passpers['gebdatum'] }},
+             with passenger ID {{ passpers['passagiernr'] }}. </p>
 
-		<table class="table table-responsive table-striped table-hover">
+        <table class="table table-responsive table-striped table-hover">
+            <h2 class="featurette-heading"> Future Bookings </h2>
 			<thead>
-				<tr>
-					<th>Course</th>
-					<th>Grade</th>
-					<th>ECTS</th>
-					<th>Examined by</th>
+				<tr> 
+					<th>Buchungsnummer</th>
+					<th>Datum</th>
+					<th>Klasse</th>
+					<th>Abfahrtszeit</th>
+                    <th>Ankunftszeit</th>
+                    <th>Abfahrtshafen</th>
+                    <th>Zielhafen</th>
 				</tr>
 			</thead>
 			<tbody>
-            {% for entry in examlist %}
+            {% for entry in bookinglist_future %}
                 <!-- dict keys in examlist as defined in the SQL statement in exams.py-->
-	        	<tr><td>{{ entry['Vorlesung'] }}</td><td>{{ entry['Note'] }}</td><td>{{ entry['ECTS'] }}</td><td>{{ entry['Pruefer'] }}</td></tr>
+	        	<tr><td>{{ entry['Buchungsnummer'] }}</td><td>{{ entry['Datum'] }}</td><td>{{ entry['Klasse'] }}</td><td>{{ entry['Abfahrtszeit'] }}</td><td>{{ entry['Ankunftszeit'] }}</td><td>{{ entry['Abfahrtshafen'] }}</td><td>{{ entry['Zielhafen'] }}</td></tr>
              {% endfor %}
 			</tbody>
 		</table>
 
+        <table class="table table-responsive table-striped table-hover">
+            <h2 class="featurette-heading"> Past Bookings </h2>
+			<thead>
+				<tr> 
+					<th>Buchungsnummer</th>
+					<th>Datum</th>
+					<th>Klasse</th>
+					<th>Abfahrtszeit</th>
+                    <th>Ankunftszeit</th>
+                    <th>Abfahrtshafen</th>
+                    <th>Zielhafen</th>
+				</tr>
+			</thead>
+			<tbody>
+            {% for entry in bookinglist_past %}
+                <!-- dict keys in examlist as defined in the SQL statement in exams.py-->
+	        	<tr><td>{{ entry['Buchungsnummer'] }}</td><td>{{ entry['Datum'] }}</td><td>{{ entry['Klasse'] }}</td><td>{{ entry['Abfahrtszeit'] }}</td><td>{{ entry['Ankunftszeit'] }}</td><td>{{ entry['Abfahrtshafen'] }}</td><td>{{ entry['Zielhafen'] }}</td></tr>
+             {% endfor %}
+			</tbody>
+		</table>
         </div>
         <div class="col-md-5">
             <img class="img-fluid img-thumbnail" width="300" height="300" src="{{ url_for('static', filename='pics/students.jpg') }}"/>

@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS "Passage" (
     "Abfahrtszeit" TEXT(10),
     "Ankunftszeit" TEXT(10),
     "Abfahrtshafen" TEXT(20),
-    "Zielfhafen" TEXT(20),
+    "Zielhafen" TEXT(20),
     CONSTRAINT pk_Passage PRIMARY KEY (Passagennummer)
 );
 

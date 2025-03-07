@@ -2,17 +2,17 @@ Folgende Features sind möglicherweise zum abarbeiten
 
 Allgemeine to Dos:
 
-Überprüfung der Datenbankstruktur   
-Befüllen der Datenbank mit Daten    Working on by Niklas
+DONE -- Überprüfung der Datenbankstruktur   -- DONE
+DONE -- Befüllen der Datenbank mit Daten    -- DONE
 
 
 Wichtige Features:
 
 Unterschied ob als Mitarbeiter oder als Passagier eingeloggt 
 
-Als Passagier:
-Vergangene Buchungen (ähnlich wie das exams im beispiel) --> Sebastian 
-Geplante Buchungen 
+Als Passagier: 
+DONE -- Vergangene Buchungen    -- DONE
+DONE -- Geplante Buchungen      -- DONE
 
 Als Mitarbeiter:
 Bisherige Fahrten anzeigen (ähnlich wie das exams im beispiel)
