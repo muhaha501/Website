@@ -85,12 +85,12 @@ INSERT into Techniker (Lizenznummer,Ausbildung,Typennummer,PANr) values ('T-1300
 INSERT into Techniker (Lizenznummer,Ausbildung,Typennummer,PANr) values ('T-87400','Hochschule','DS004',9999);
 
 
-INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS001', 46328, 860, 'Raddampfer', 'Meyer Werft');
-INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS002', 52310, 920, 'Passagierdampfer', 'Fincantieri');
-INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS003', 34800, 500, 'Frachtschiff', 'Meyer Werft');
-INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS004', 29800, 400, 'Flussschiff', 'Damen Shipyards');
-INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS005', 58900, 1100, 'Ozeandampfer', 'Hyundai Heavy Industries');
-INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS006', 154000, 1800, 'Passagierdampfer', 'Hyundai Heavy Industries');
+INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS001', 46328, 86, 'Raddampfer', 'Meyer Werft');
+INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS002', 52310, 92, 'Passagierdampfer', 'Fincantieri');
+INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS003', 34800, 50, 'Frachtschiff', 'Meyer Werft');
+INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS004', 29800, 40, 'Flussschiff', 'Damen Shipyards');
+INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS005', 58900, 110, 'Ozeandampfer', 'Hyundai Heavy Industries');
+INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS006', 154000, 180, 'Passagierdampfer', 'Hyundai Heavy Industries');
 
 INSERT into Hersteller (Herstellername) values ('Meyer Werft');
 INSERT into Hersteller (Herstellername) values ('Hyundai Heavy Industries');

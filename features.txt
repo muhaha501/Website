@@ -34,8 +34,8 @@ Buchungen durchführen? (Achtung wegen Überschneidungen)
 
 Als Mitarbeiter:
 
-Stats als Kapitän (Meilen, Anzahl Fahrten mit Boot)
-Same für Techniker
+--Begonnen Stats als Kapitän (Meilen, Anzahl Fahrten mit Boot)
+--Begonne Same für Techniker
 
 Allgemein:
 Fix Registration als Passagier
