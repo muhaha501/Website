@@ -15,6 +15,7 @@ DONE -- Vergangene Buchungen    -- DONE
 DONE -- Geplante Buchungen      -- DONE
 
 Als Mitarbeiter:
+DONE -- Schiffsytpen Anzeigen welche von Techniker gewartet werden dürfen -- Done
 Bisherige Fahrten anzeigen (ähnlich wie das exams im beispiel)
 Zukünftige Fahrten anzeigen
 Suche von Booten (ähnlich wie das Buch suchen)

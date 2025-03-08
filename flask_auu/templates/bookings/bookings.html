@@ -10,14 +10,14 @@
 <div class="container marketing">
 
     <!-- START THE FEATURETTES -->
-    <div class="signpost"><h1>Bookings/ Bookings</h1></div>
+    <div class="signpost"><h1>Bookings</h1></div>
 
     <hr class="featurette-divider">
 
     <div class="row featurette">
         <div class="col-md-7">
             <h2 class="featurette-heading">Bookings</h2>
-            <p class="lead">Full list.</p>
+            <p class="lead"></p>
 
          <p> Bookings results for PANr {{ g.user['username'] }}, {{ passpers['vorname'] }} {{ passpers['nachname'] }}, born on {{ passpers['gebdatum'] }},
              with passenger ID {{ passpers['passagiernr'] }}. </p>
@@ -65,7 +65,7 @@
 		</table>
         </div>
         <div class="col-md-5">
-            <img class="img-fluid img-thumbnail" width="300" height="300" src="{{ url_for('static', filename='pics/students.jpg') }}"/>
+            <img class="img-fluid img-thumbnail"src="{{ url_for('static', filename='pics/booking.jpeg') }}"/>
         </div>
     </div>
 

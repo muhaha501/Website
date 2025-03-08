@@ -17,4 +17,14 @@ def index():
     session['history'] = session['history'] + "/index\n ... "
     flash(session['history'])
 
-    return render_template('index.html',)
+    db = get_db()
+    passpers = None
+    if g.user is not None:
+        passpers = db.execute(
+                'SELECT Nachname' 
+                ' FROM Person'
+                ' WHERE Person.PANr = ?', (g.user['username'],)
+        ).fetchone()
+
+
+    return render_template('index.html', passpers=passpers)

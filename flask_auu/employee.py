@@ -20,29 +20,39 @@ def employee():
 
    
     db = get_db()
-    emplpers = db.execute(
-            'SELECT Vorname, Nachname, Gebdatum, AngestelltenNr, Kontonummer, Kontostand, BLZ, Person.PANr as PANr' 
-            ' FROM Person, Angestellter_besitzt_Gehaltskonto'
-            ' WHERE Person.PANr = Angestellter_besitzt_Gehaltskonto.PANr and Person.PANr = ? ', (g.user['username'],)
+    techniker = db.execute(
+            'SELECT Vorname, Nachname, Gebdatum, AngestelltenNr, Kontonummer, Kontostand, BLZ, Person.PANr as PANr, Techniker.Lizenznummer as Lizenznummer, Techniker.Typennummer as Typennummer' 
+            ' FROM Person, Angestellter_besitzt_Gehaltskonto, Techniker'
+            ' WHERE Person.PANr = Angestellter_besitzt_Gehaltskonto.PANr and Person.PANr = Techniker.PANr and Person.PANr = ? ', (g.user['username'],)
     ).fetchone()
 
-    kapitaenlist = None
-    technikerlist = None
-    if emplpers is not None:
-        technikerlist = db.execute(
-            'SELECT Ausbildung, Techniker.Typennummer as Typennummer, Bruttoregistertonnen, Besatzungsstaerke, Typenbezeichnung, Herstellername'
+    kapitaen = db.execute(
+            'SELECT Vorname, Nachname, Gebdatum, AngestelltenNr, Kontonummer, Kontostand, BLZ, Person.PANr as PANr' 
+            ' FROM Person, Angestellter_besitzt_Gehaltskonto, Kapitaen'
+            ' WHERE Person.PANr = Angestellter_besitzt_Gehaltskonto.PANr and Person.PANr = Kapitaen.PANr and Person.PANr = ? ', (g.user['username'],)
+    ).fetchone()
+
+    if techniker is not None:
+        schiffstyp = db.execute(
+            'SELECT Ausbildung, Techniker.Lizenznummer as Lizenznummer, Techniker.Typennummer as Typennummer, Bruttoregistertonnen, Besatzungsstaerke, Typenbezeichnung, Herstellername'
             ' FROM Techniker, Schiffstyp'
-            ' WHERE Techniker.Typennummer = Schiffstyp.Typennummer and Techniker.PANr = ?', (emplpers['PANr'],)
+            ' WHERE Techniker.Typennummer = Schiffstyp.Typennummer and Techniker.PANr = ?', (techniker['PANr'],)
         ).fetchall()
+        schifflist = db.execute(
+            ' SELECT Schiffstyp.Herstellername as Herstellername, InventarNr, Baujahr, Seemeilen, LogbuchNr'
+            ' from Schiffstyp '
+            ' join Schiffexemplar_hat_Logbuch on Schiffstyp.Typennummer = Schiffexemplar_hat_Logbuch.Typennummer'
+            ' where '
+            ' Schiffstyp.Typennummer = ?', (techniker['Typennummer'],)
+        ).fetchall()
+        return render_template('employee/techniker.html', emplpers=techniker, technikerlist=schiffstyp, schifflist=schifflist)
+    if kapitaen is not None:
         kapitaenlist = db.execute(
             'SELECT Kapitaen.KapitaenpatentNr AS KapitaenpatentNr, seemeilen, typennummer, passagennummer'
             ' FROM Kapitaen, Fahren'
-            ' WHERE Kapitaen.KapitaenpatentNr = Fahren.KapitaenpatentNr and Kapitaen.PANr = ?', (emplpers['PANr'],)
-        ).fetchall()    
-    else:
-        return render_template('non_employee/non_employee.html',) 
-    
-    if kapitaenlist:
-        return render_template('employee/kapitaen.html', emplpers=emplpers, kapitaenlist=kapitaenlist)
+            ' WHERE Kapitaen.KapitaenpatentNr = Fahren.KapitaenpatentNr and Kapitaen.PANr = ?', (kapitaen['PANr'],)
+        ).fetchall()
+        return render_template('employee/kapitaen.html', emplpers=kapitaen, kapitaenlist=kapitaenlist)
 
-    return render_template('employee/techniker.html', emplpers=emplpers, technikerlist=technikerlist) 
+    return render_template('non_employee/non_employee.html',)
+
