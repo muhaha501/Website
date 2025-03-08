@@ -25,12 +25,6 @@ def bookings():
             ' WHERE Person.PANr = Passagier.PANr and Person.PANr = ? ', (g.user['username'],)
     ).fetchone()
 
-
-
-    now = datetime.datetime.now()
-
-    now = now.strftime("%d." "%m." "%Y")
-
     #DEBUG: print(matrnrper, flush=True)
     bookinglist_future = None
     bookinglist_past = None
@@ -39,14 +33,14 @@ def bookings():
             #Remark: " instead of ' because of SQL internal string concatenation
             'SELECT buchungsnummer, datum, klasse, abfahrtszeit, ankunftszeit, abfahrtshafen, zielhafen'
             ' FROM Buchen, Passage'
-            ' WHERE Buchen.Passagennummer = Passage.Passagennummer AND Buchen.PassagierNr = ? and Datum >= ?', (passpers['PassagierNr'],now,)
+            " WHERE Buchen.Passagennummer = Passage.Passagennummer AND Buchen.PassagierNr = ? and date(Datum) >= date('now')", (passpers['PassagierNr'],)
         ).fetchall()
         bookinglist_past = db.execute(
             #Remark: " instead of ' because of SQL internal string concatenation
             'SELECT buchungsnummer, datum, klasse, abfahrtszeit, ankunftszeit, abfahrtshafen, zielhafen'
             ' FROM Buchen, Passage'
-            ' WHERE Buchen.Passagennummer = Passage.Passagennummer AND Buchen.PassagierNr = ? and Datum < ?', (passpers['PassagierNr'],now,)
+            " WHERE Buchen.Passagennummer = Passage.Passagennummer AND Buchen.PassagierNr = ? and date(Datum) < date('now')", (passpers['PassagierNr'],)
         ).fetchall()    
     else:
         return render_template('non_passagier/non_passagier.html',) 
-    return render_template('bookings/bookings.html', passpers=passpers, bookinglist_future=bookinglist_future, bookinglist_past=bookinglist_past, timenow = now) 
+    return render_template('bookings/bookings.html', passpers=passpers, bookinglist_future=bookinglist_future, bookinglist_past=bookinglist_past)

@@ -109,22 +109,36 @@ INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennum
 INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennummer, LogbuchNr) values ('SE1009', 2017, 300000, 'DS004', 'LB009');
 INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennummer, LogbuchNr) values ('SE1010', 2021, 250000, 'DS005', 'LB010');
 
-INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer) VALUES ('B001', '01.03.2025', 1, 'P-12564', 'PS10001');
-INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer) VALUES ('B002', '04.03.2025', 2, 'P-12564', 'PS10002');
-INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer) VALUES ('B003', '30.04.2025', 1, 'P-45687', 'PS10003');
-INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer) VALUES ('B004', '19.02.2025', 3, 'P-25864', 'PS10001');
-INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer) VALUES ('B005', '15.06.2025', 2, 'P-25864', 'PS10004');
-INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer) VALUES ('B006', '30.06.2025', 1, 'P-87954', 'PS10005');
-INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer) VALUES ('B007', '09.08.2025', 2, 'P-87954', 'PS10002');
-INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer) VALUES ('B008', '06.02.2025', 1, 'P-31456', 'PS10003');
-INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer) VALUES ('B009', '30.03.2025', 3, 'P-31456', 'PS10004');
-INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer) VALUES ('B010', '25.05.2025', 1, 'P-12564', 'PS10005');
+INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer)
+VALUES ('B001', '2025-03-01', 1, 'P-12564', 'PS10001');
+INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer)
+VALUES ('B002', '2025-03-04', 2, 'P-12564', 'PS10002');
+INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer)
+VALUES ('B003', '2025-04-30', 1, 'P-45687', 'PS10003');
+INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer)
+VALUES ('B004', '2025-02-19', 3, 'P-25864', 'PS10001');
+INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer)
+VALUES ('B005', '2025-06-15', 2, 'P-25864', 'PS10004');
+INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer)
+VALUES ('B006', '2025-06-30', 1, 'P-87954', 'PS10005');
+INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer)
+VALUES ('B007', '2025-08-09', 2, 'P-87954', 'PS10002');
+INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer)
+VALUES ('B008', '2025-02-06', 1, 'P-31456', 'PS10003');
+INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer)
+VALUES ('B009', '2025-03-30', 3, 'P-31456', 'PS10004');
+INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer)
+VALUES ('B010', '2025-05-25', 1, 'P-12564', 'PS10005');
 
-INSERT INTO Fahren (KapitaenpatentNr, Typennummer, Passagennummer) VALUES ('K-12345', 'DS003', 'PS1001');
-INSERT INTO Fahren (KapitaenpatentNr, Typennummer, Passagennummer) VALUES ('K-12345', 'DS001', 'PS1002'); 
-INSERT INTO Fahren (KapitaenpatentNr, Typennummer, Passagennummer) VALUES ('K-90001', 'DS005', 'PS1003');
-INSERT INTO Fahren (KapitaenpatentNr, Typennummer, Passagennummer) VALUES ('K-54645', 'DS002', 'PS1004');
-INSERT INTO Fahren (KapitaenpatentNr, Typennummer, Passagennummer) VALUES ('K-54645', 'DS004', 'PS1005');
+
+
+INSERT INTO Fahren (KapitaenpatentNr, Typennummer, Passagennummer) VALUES ('K-12345', 'DS003', 'PS10001');
+INSERT INTO Fahren (KapitaenpatentNr, Typennummer, Passagennummer) VALUES ('K-12345', 'DS001', 'PS10002');
+INSERT INTO Fahren (KapitaenpatentNr, Typennummer, Passagennummer) VALUES ('K-90001', 'DS005', 'PS10003');
+INSERT INTO Fahren (KapitaenpatentNr, Typennummer, Passagennummer) VALUES ('K-54645', 'DS002', 'PS10004');
+INSERT INTO Fahren (KapitaenpatentNr, Typennummer, Passagennummer) VALUES ('K-54645', 'DS004', 'PS10005');
+
+
 
 INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr) VALUES ('LB001', 'K-12345', NULL);
 INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr) VALUES ('LB002', NULL, 'T-87400'); 
@@ -132,6 +146,14 @@ INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr) VAL
 INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr) VALUES ('LB004', NULL, 'T-87400');  
 INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr) VALUES ('LB005', 'K-90001', NULL);  
 INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr) VALUES ('LB006', NULL, 'T-00011');
+
+
+
+
+
+
+
+
 
 
 /*ALTE DATEN DER UNIVERSITAET*/

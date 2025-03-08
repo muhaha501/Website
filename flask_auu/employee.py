@@ -27,7 +27,7 @@ def employee():
     ).fetchone()
 
     kapitaen = db.execute(
-            'SELECT Vorname, Nachname, Gebdatum, AngestelltenNr, Kontonummer, Kontostand, BLZ, Person.PANr as PANr' 
+            'SELECT Vorname, Nachname, Gebdatum, AngestelltenNr, Kontonummer, Kontostand, BLZ, Person.PANr as PANr, Kapitaen.KapitaenpatentNr' 
             ' FROM Person, Angestellter_besitzt_Gehaltskonto, Kapitaen'
             ' WHERE Person.PANr = Angestellter_besitzt_Gehaltskonto.PANr and Person.PANr = Kapitaen.PANr and Person.PANr = ? ', (g.user['username'],)
     ).fetchone()
@@ -47,12 +47,25 @@ def employee():
         ).fetchall()
         return render_template('employee/techniker.html', emplpers=techniker, technikerlist=schiffstyp, schifflist=schifflist)
     if kapitaen is not None:
-        kapitaenlist = db.execute(
-            'SELECT Kapitaen.KapitaenpatentNr AS KapitaenpatentNr, seemeilen, typennummer, passagennummer'
-            ' FROM Kapitaen, Fahren'
-            ' WHERE Kapitaen.KapitaenpatentNr = Fahren.KapitaenpatentNr and Kapitaen.PANr = ?', (kapitaen['PANr'],)
+        future_passages = db.execute(
+            ' select Buchen.Passagennummer, Buchen.Datum, Passage.Abfahrtshafen, Passage.Zielhafen, Schiffstyp.Herstellername, Schiffstyp.Typenbezeichnung'
+            ' from Kapitaen '
+            ' join Fahren on Kapitaen.KapitaenpatentNr = Fahren.KapitaenpatentNr '
+            ' join Buchen on Fahren.Passagennummer = Buchen.Passagennummer '
+            ' join Passage on Buchen.Passagennummer = Passage.Passagennummer'
+            ' join Schiffstyp on Fahren.Typennummer = Schiffstyp.Typennummer'
+            " where Fahren.KapitaenpatentNr = ? and date(Buchen.Datum) < date('now'); ", (kapitaen['KapitaenpatentNr'],)
         ).fetchall()
-        return render_template('employee/kapitaen.html', emplpers=kapitaen, kapitaenlist=kapitaenlist)
+        past_passages = db.execute(
+            ' select Buchen.Passagennummer, Buchen.Datum, Passage.Abfahrtshafen, Passage.Zielhafen, Schiffstyp.Herstellername, Schiffstyp.Typenbezeichnung'
+            ' from Kapitaen '
+            ' join Fahren on Kapitaen.KapitaenpatentNr = Fahren.KapitaenpatentNr '
+            ' join Buchen on Fahren.Passagennummer = Buchen.Passagennummer '
+            ' join Passage on Buchen.Passagennummer = Passage.Passagennummer'
+            ' join Schiffstyp on Fahren.Typennummer = Schiffstyp.Typennummer'
+            " where Fahren.KapitaenpatentNr = ? and date(Buchen.Datum) > date('now'); ", (kapitaen['KapitaenpatentNr'],)
+        ).fetchall()
+        return render_template('employee/kapitaen.html', emplpers=kapitaen, future_passages=future_passages, past_passages=past_passages )
 
     return render_template('non_employee/non_employee.html',)
 
