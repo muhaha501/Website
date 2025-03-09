@@ -61,20 +61,21 @@ def employee():
 
                 if techniker:
                     db.execute(
-                        'INSERT INTO STATUS_der_ENTLEHNUNG (LogbuchNr, TechnikerNr) VALUES (?, ?)',
-                        (logbuchnr, techniker['Lizenznummer']),
+                        "INSERT INTO STATUS_der_ENTLEHNUNG (LogbuchNr, TechnikerNr, Datum, PANr) VALUES (?, ?, DATE('now'), ?)",
+                        (logbuchnr, techniker['Lizenznummer'], g.user['username']),
                     )
                 elif kapitaen:
                     db.execute(
-                        'INSERT INTO STATUS_der_ENTLEHNUNG (LogbuchNr, KapitaenpatentNr) VALUES (?, ?)',
-                        (logbuchnr, kapitaen['KapitaenpatentNr']),
+                        "INSERT INTO STATUS_der_ENTLEHNUNG (LogbuchNr, KapitaenpatentNr, Datum, PANr) VALUES (?, ?, DATE('now'), ?)",
+                        (logbuchnr, kapitaen['KapitaenpatentNr'], g.user['username']),
                     )
                 db.commit()
     
     # Alle ausgeliehennen Bücher
     ausgeliehen = db.execute(
-        'SELECT LogbuchNr FROM STATUS_der_ENTLEHNUNG'
-
+        ' select LogbuchNr, Datum, Vorname, Nachname, S.PANR'
+        ' from Status_der_Entlehnung S '
+        ' join Person P on S.PANr = P.PANr'
     ).fetchall()
 
     techniker = db.execute(
