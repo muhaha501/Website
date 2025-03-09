@@ -20,35 +20,72 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        name = request.form['name']
+        surname = request.form['surname']
+        dob = request.form['date_of_birth']
+        plz = request.form['plz']
+        ort = request.form['ort']
+        street = request.form['street']
+        hausnummer = request.form['hausnummer']
         db = get_db()
         error = None
 
         #valide usr/pw not empty
         if not username:
             error = 'Username is required.'
+        elif not name:
+            error = 'Name is required'
+        elif not surname:
+            error = 'Surname is required'
         elif not password:
             error = 'Password is required.'
+        elif not dob:
+            error = 'Date of Birth is required'
+        elif not plz:
+            error = "PLZ is required"
+        elif not ort:
+            error = 'City is required'
+        elif not street:
+            error = 'Street is required'
+        elif not hausnummer:
+            error = 'Number is required'
 
         if error is None:
             try:
-                #inser usr/pw into db
-                # generate_password_hash to securely hash pw
                 db.execute(
                     "INSERT INTO user (username, password) VALUES (?, ?)",
                     (username, generate_password_hash(password)),
                 )
+                db.execute(
+                    "INSERT INTO PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values (?, ?, ?, ?, ?, ?, ?, ?)",
+                    (username, dob, name, surname, plz, ort, street, hausnummer),
+                )
+                passagier_nr = 'P-' + username
+                db.execute(
+                    "INSERT INTO Passagier (PassagierNr, PANr) values (?,?)",
+                    (passagier_nr, username)
+                )
                 db.commit()
-            except db.IntegrityErrror:
-                error = f"User {username} is already registered."
+            except db.Error:
+                error = f"An Error occured, please contact the system administrator"
             else:
                 # after storing usr/pw-> redirect to login
-                return redirect(url_for("auth.login"))
+                return redirect(url_for('auth.login'))
 
         # in case of error
         flash(error)
 
+    db = get_db()
+    pannr = int(db.execute(
+        ' select username from user '
+        ' order by username DESC '
+        ' LIMIT 1 ').fetchone()[0])
+
+    print(pannr)
+    pannr += 1
+    pannr = str(pannr)
     #html rendering
-    return render_template('auth/register.html')
+    return render_template('auth/register.html', pannr = pannr)
 
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
