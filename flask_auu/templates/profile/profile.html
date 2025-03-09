@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container marketing">
+
+    <div class="signpost"><h1>Welcome {{ g.user['username'] }}</h1></div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-6">
+            <h2 class="featurette-heading">Personal Information</h2>
+            <table class="table table-responsive table-striped table-hover">
+                <tbody>
+                    <tr>
+                        <th>First Name</th>
+                        <td>{{ user_data['VORNAME'] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Last Name</th>
+                        <td>{{ user_data['NACHNAME'] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date of Birth</th>
+                        <td>{{ user_data['GebDatum'] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Zip Code</th>
+                        <td>{{ user_data['PLZ'] }}</td>
+                    </tr>
+                    <tr>
+                        <th>City</th>
+                        <td>{{ user_data['ORT'] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Street</th>
+                        <td>{{ user_data['STRASSE'] }}</td>
+                    </tr>
+                    <tr>
+                        <th>House Number</th>
+                        <td>{{ user_data['Hausnummer'] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

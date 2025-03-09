@@ -68,4 +68,8 @@ def create_app(test_config=None):
     app.add_url_rule('/library/search', endpoint='search')
     app.add_url_rule('/library/borrowedbooks', endpoint='borrowedbooks')
 
+    from . import profile
+    app.register_blueprint(profile.bp)
+    app.add_url_rule('/profile', endpoint='profile')
+
     return app
