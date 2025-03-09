@@ -16,8 +16,8 @@ Insert into user (username, password) values ('7457', 'pbkdf2:sha256:260000$TE7r
 Insert into user (username, password) values ('6834', 'pbkdf2:sha256:260000$mpqrArAgux5YGorA$aeda075bfc2657fc7ff500ed15901e591ad81080920aa22121cb90ce758c855b');
 /*pw: Go4two! */ /* dieser wird ein Mitarbeiter und Kapitaen */
 Insert into user (username, password) values ('6541', 'pbkdf2:sha256:260000$mpqrArAgux5YGorA$aeda075bfc2657fc7ff500ed15901e591ad81080920aa22121cb90ce758c855b');
-/*pw: guest! */
-Insert into user (username, password) values ('guest', 'pbkdf2:sha256:260000$MzkPXrPPnl7F5dN7$11fed544bf7be1e520e908eaaea1222d62e3b567b36853a68116b617ae75882f');
+/*pw: guest! Habe ich Rausgenummen um die Register Logik einfacher zu machen*/
+--Insert into user (username, password) values ('guest', 'pbkdf2:sha256:260000$MzkPXrPPnl7F5dN7$11fed544bf7be1e520e908eaaea1222d62e3b567b36853a68116b617ae75882f');
 
 
 /*UNSERE DATEN FUER SCHIFFSFAHRT*/

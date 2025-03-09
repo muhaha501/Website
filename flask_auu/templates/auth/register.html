@@ -2,20 +2,106 @@
 
 
 {% block content %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const password = document.getElementById("password");
+        const repeatPassword = document.getElementById("repeat-password");
+
+        // Add an event listener to the "repeat-password" field
+        repeatPassword.addEventListener("input", () => {
+            if (password.value !== repeatPassword.value) {
+                repeatPassword.setCustomValidity("Passwords do not match");
+                repeatPassword.reportValidity();
+            } else {
+                repeatPassword.setCustomValidity(""); // Clear error
+            }
+        });
+
+        // Optionally, validate when the user types in the original password field
+        password.addEventListener("input", () => {
+            if (repeatPassword.value !== "" && password.value !== repeatPassword.value) {
+                repeatPassword.setCustomValidity("Passwords do not match");
+                repeatPassword.reportValidity();
+            } else {
+                repeatPassword.setCustomValidity(""); // Clear error
+            }
+        });
+    });
+</script>
+
+
   <div class="container marketing">
 
         <!-- START THE FEATURETTES -->
-        <div class="signpost"><h1>Auth/Register</h1></div>
+        <div class="signpost"><h1>Register</h1></div>
         <hr class="featurette-divider">
-         <p>For full functionality register and log in with a student PANr. Valid PANrs are 1234, 2345, 3456, 6834 and 7754.</p>
-        <form method="post">
-          <label for="username">Username</label>
-          <input name="username" id="username" required>
-          <label for="password">Password</label>
-          <input type="password" name="password" id="password" required>
-          <input type="submit" value="Register">
-        </form>
+         <p>Register a new user to view and edit active bookings and to make new ones.<br>
+             Registration is only possible as a customer. To register as an employee, please contact your responsible HR department</p>
+    <form method="post" class="needs-validation" novalidate style="max-width: 600px; margin: auto;">
+        <!-- Username -->
+        <div class="form-group">
+            <label for="username" class="form-label">User Name</label>
+            <input type="text" class="form-control" id="username" name="username" value= "{{ pannr }}" readonly>
+        </div>
+
+        <!-- Name and Surname -->
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="surname" class="form-label">Surname</label>
+            <input type="text" class="form-control" id="surname" name="surname" placeholder="Enter your surname" required>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Create a password" required>
+        </div>
+
+        <!-- Repeat Password -->
+        <div class="mb-3">
+            <label for="repeat-password" class="form-label">Repeat Password</label>
+            <input type="password" class="form-control" id="repeat-password" name="repeat_password" placeholder="Repeat your password" required>
+        </div>
+
+        <!-- Date of Birth -->
+        <div class="mb-3">
+            <label for="dob" class="form-label">Date of Birth</label>
+            <input type="date" class="form-control" id="dob" name="date_of_birth" required>
+        </div>
+
+        <!-- Address -->
+        <div class="mb-3">
+            <label for="plz" class="form-label">Address PLZ</label>
+            <input type="text" class="form-control" id="plz" name="plz" placeholder="Enter your PLZ" required>
+
+        <div class="mb-3">
+            <label for="ort" class="form-label">Address PLACE</label>
+            <input type="text" class="form-control" id="ort" name="ort" placeholder="Enter your city" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="street" class="form-label">Address street</label>
+            <input type="text" class="form-control" id="street" name="street" placeholder="Enter your street" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="hausnummer" class="form-label">Address number</label>
+            <input type="text" class="form-control" id="hausnummer" name="hausnummer" placeholder="Enter your number" required>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+    </form>
+
         <!-- /END THE FEATURETTES -->
 
   </div><!-- /.container -->
+
 {% endblock %}
