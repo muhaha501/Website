@@ -9,7 +9,7 @@ from flask_auu.db import get_db
 #define the blueprint
 bp = Blueprint('employee', __name__)
 
-@bp.route('/employee')
+@bp.route('/employee', methods = ("GET", "POST"))
 @login_required
 def employee():
 
@@ -20,6 +20,63 @@ def employee():
 
    
     db = get_db()
+
+    if request.method == 'POST':
+        if 'returnlogbuch' in request.form:
+            returnlogbuch = request.form['returnlogbuch']
+
+            techniker = db.execute(
+                'SELECT Lizenznummer FROM Techniker WHERE PANr = ?', (g.user['username'],)
+            ).fetchone()
+            kapitaen = db.execute(
+                'SELECT KapitaenpatentNr FROM Kapitaen WHERE PANr = ?', (g.user['username'],)
+            ).fetchone()
+
+            if techniker:
+                db.execute(
+                    'DELETE FROM STATUS_der_ENTLEHNUNG WHERE LogbuchNr = ? AND TechnikerNr = ?',
+                    (returnlogbuch, techniker['Lizenznummer'])
+                )
+            elif kapitaen:
+                db.execute(
+                    'DELETE FROM STATUS_der_ENTLEHNUNG WHERE LogbuchNr = ? AND KapitaenpatentNr = ?',
+                    (returnlogbuch, kapitaen['KapitaenpatentNr'])
+                )
+            db.commit()
+
+        elif 'logbuchnr' in request.form:
+            logbuchnr = request.form['logbuchnr']
+
+            logbuch_exists = db.execute(
+                "SELECT * FROM Schiffexemplar_hat_Logbuch WHERE LogbuchNr = ?", (logbuchnr,)
+            ).fetchone()
+
+            if logbuch_exists:
+                techniker = db.execute(
+                    'SELECT Lizenznummer FROM Techniker WHERE PANr = ?', (g.user['username'],)
+                ).fetchone()
+                kapitaen = db.execute(
+                    'SELECT KapitaenpatentNr FROM Kapitaen WHERE PANr = ?', (g.user['username'],)
+                ).fetchone()
+
+                if techniker:
+                    db.execute(
+                        'INSERT INTO STATUS_der_ENTLEHNUNG (LogbuchNr, TechnikerNr) VALUES (?, ?)',
+                        (logbuchnr, techniker['Lizenznummer']),
+                    )
+                elif kapitaen:
+                    db.execute(
+                        'INSERT INTO STATUS_der_ENTLEHNUNG (LogbuchNr, KapitaenpatentNr) VALUES (?, ?)',
+                        (logbuchnr, kapitaen['KapitaenpatentNr']),
+                    )
+                db.commit()
+    
+    # Alle ausgeliehennen Bücher
+    ausgeliehen = db.execute(
+        'SELECT LogbuchNr FROM STATUS_der_ENTLEHNUNG'
+
+    ).fetchall()
+
     techniker = db.execute(
             'SELECT Vorname, Nachname, Gebdatum, AngestelltenNr, Kontonummer, Kontostand, BLZ, Person.PANr as PANr, Techniker.Lizenznummer as Lizenznummer, Techniker.Typennummer as Typennummer' 
             ' FROM Person, Angestellter_besitzt_Gehaltskonto, Techniker'
@@ -45,7 +102,7 @@ def employee():
             ' where '
             ' Schiffstyp.Typennummer = ?', (techniker['Typennummer'],)
         ).fetchall()
-        return render_template('employee/techniker.html', emplpers=techniker, technikerlist=schiffstyp, schifflist=schifflist)
+        return render_template('employee/techniker.html', emplpers=techniker, technikerlist=schiffstyp, schifflist=schifflist, ausgeliehen=ausgeliehen)
     if kapitaen is not None:
         future_passages = db.execute(
             ' select Buchen.Passagennummer, Buchen.Datum, Passage.Abfahrtshafen, Passage.Zielhafen, Schiffstyp.Herstellername, Schiffstyp.Typenbezeichnung'
@@ -65,7 +122,7 @@ def employee():
             ' join Schiffstyp on Fahren.Typennummer = Schiffstyp.Typennummer'
             " where Fahren.KapitaenpatentNr = ? and date(Buchen.Datum) > date('now'); ", (kapitaen['KapitaenpatentNr'],)
         ).fetchall()
-        return render_template('employee/kapitaen.html', emplpers=kapitaen, future_passages=future_passages, past_passages=past_passages )
+        return render_template('employee/kapitaen.html', emplpers=kapitaen, future_passages=future_passages, past_passages=past_passages, ausgeliehen=ausgeliehen )
 
     return render_template('non_employee/non_employee.html',)
 

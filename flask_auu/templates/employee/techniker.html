@@ -60,6 +60,27 @@
 			</tbody>
 		</table>
 
+        <h2>Aktuell ausgeliehene Logbücher</h2>
+        <ul>
+            {% for buch in ausgeliehen %}
+                <li>Logbuch Nr: {{ buch['LogbuchNr'] }}</li>
+            {% else %}
+                <li>Keine Logbücher ausgeliehen.</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Logbuch ausleihen</h3>
+        <form method="post">
+            <input type="text" name="logbuchnr" placeholder="Logbuch Nummer" required>
+            <button type="submit" class="btn btn-success">Ausleihen</button>
+        </form>
+
+        <h3>Logbuch zurückgeben</h3>
+        <form method="post">
+            <input type="text" name="returnlogbuch" placeholder="Logbuch Nummer" required>
+            <button type="submit" class="btn btn-danger">Zurückgeben</button>
+        </form>
+
         </div>
         <div class="col-md-5">
             <img class="img-fluid img-thumbnail" width="300" height="300" src="{{ url_for('static', filename='pics/wartung.jpg') }}"/>
