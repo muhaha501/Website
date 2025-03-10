@@ -113,7 +113,7 @@ def employee():
             ' join Buchen on Fahren.Passagennummer = Buchen.Passagennummer '
             ' join Passage on Buchen.Passagennummer = Passage.Passagennummer'
             ' join Schiffstyp on Fahren.Typennummer = Schiffstyp.Typennummer'
-            " where Fahren.KapitaenpatentNr = ? and date(Buchen.Datum) < date('now'); ", (kapitaen['KapitaenpatentNr'],)
+            " where Fahren.KapitaenpatentNr = ? and date(Buchen.Datum) <= date('now'); ", (kapitaen['KapitaenpatentNr'],)
         ).fetchall()
         past_passages = db.execute(
             ' select Buchen.Passagennummer, Buchen.Datum, Passage.Abfahrtshafen, Passage.Zielhafen, Schiffstyp.Herstellername, Schiffstyp.Typenbezeichnung'
