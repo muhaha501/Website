@@ -33,13 +33,15 @@ def bookings():
             #Remark: " instead of ' because of SQL internal string concatenation
             'SELECT buchungsnummer, datum, klasse, abfahrtszeit, ankunftszeit, abfahrtshafen, zielhafen'
             ' FROM Buchen, Passage'
-            " WHERE Buchen.Passagennummer = Passage.Passagennummer AND Buchen.PassagierNr = ? and date(Datum) >= date('now')", (passpers['PassagierNr'],)
+            " WHERE Buchen.Passagennummer = Passage.Passagennummer AND Buchen.PassagierNr = ? and date(Datum) >= date('now')"
+            ' order by datum', (passpers['PassagierNr'],)
         ).fetchall()
         bookinglist_past = db.execute(
-            #Remark: " instead of ' because of SQL internal string concatenation
+            #Order by date latest first
             'SELECT buchungsnummer, datum, klasse, abfahrtszeit, ankunftszeit, abfahrtshafen, zielhafen'
             ' FROM Buchen, Passage'
-            " WHERE Buchen.Passagennummer = Passage.Passagennummer AND Buchen.PassagierNr = ? and date(Datum) < date('now')", (passpers['PassagierNr'],)
+            " WHERE Buchen.Passagennummer = Passage.Passagennummer AND Buchen.PassagierNr = ? and date(Datum) < date('now')"
+            ' order by datum DESC', (passpers['PassagierNr'],)
         ).fetchall()    
     else:
         return render_template('non_passagier/non_passagier.html',) 

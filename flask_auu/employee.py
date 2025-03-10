@@ -76,6 +76,7 @@ def employee():
         ' select LogbuchNr, Datum, Vorname, Nachname, S.PANR'
         ' from Status_der_Entlehnung S '
         ' join Person P on S.PANr = P.PANr'
+        ' order by LogbuchNr'
     ).fetchall()
 
     techniker = db.execute(
