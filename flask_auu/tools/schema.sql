@@ -121,7 +121,6 @@ CREATE TABLE IF NOT EXISTS "Hersteller" (
 );
 
 
-/* wenn logbuch geloescht auch Schiff geloescht */
 CREATE TABLE IF NOT EXISTS "Schiffexemplar_hat_Logbuch" (
     "InventarNr" TEXT(10)
         CONSTRAINT nn_InventarNr_Schiffexemplar_hat_Logbuch NOT NULL,
@@ -132,7 +131,6 @@ CREATE TABLE IF NOT EXISTS "Schiffexemplar_hat_Logbuch" (
     "LogbuchNr" TEXT(10),
     CONSTRAINT pk_Schiffexemplar_hat_Logbuch PRIMARY KEY (LogbuchNr),
     CONSTRAINT fk_Schiffexemplar_hat_Logbuch_Schiffstyp FOREIGN KEY (Typennummer) REFERENCES Schiffstyp (Typennummer)
-        ON DELETE CASCADE
 );
 
 /* Datum als INTEGER wie gebdatum */

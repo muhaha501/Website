@@ -43,3 +43,12 @@ DONE -- Begonnen: Profile page                                              -- D
 Weitere ideen:
 Layout (Nicht so wichtig)
 
+-- User und Personen bereinigen (keine höhere PANr als 2000) --
+-- Altlasten bereinigen --
+-- Usage History ausblenden --
+-- optional optimal new bookings --
+-- Profil updaten --
+-- Techniker darf nur Logbücher ausleihen von Schiffen die sie warten dürfen (und evtl. auch nur sehen) --
+-- Error Handling bei Logbüchern --
+-- Home Button auf Firmen Logo legen --
+-- Denglisch ausbessern --
