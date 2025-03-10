@@ -52,3 +52,4 @@ Layout (Nicht so wichtig)
 -- Error Handling bei Logbüchern --
 -- Home Button auf Firmen Logo legen --
 -- Denglisch ausbessern --
+-- Datum einheitliches Format bringen -- 
