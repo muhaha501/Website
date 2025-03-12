@@ -53,22 +53,16 @@
           </li>
         </ul>
         <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Profile
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/profile">View Profile</a>
-            </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLogout" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Logout
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ url_for('auth.logout') }}">Logout</a>
-            </ul>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/profile">Profile</a>
           </li>
+
+          </li>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('auth.logout') }}">Logout</a>
+          </li>
+
         </ul>
       </div>
 {% else %}
