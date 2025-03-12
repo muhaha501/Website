@@ -43,7 +43,7 @@ DONE -- Begonnen: Profile page                                              -- D
 Weitere ideen:
 Layout (Nicht so wichtig)
 
--- User und Personen bereinigen (keine höhere PANr als 2000) --
+DONE  -- User und Personen bereinigen (keine höhere PANr als 2000) -- DONE (Neue Initialisierung der DB fehlt noch)
 -- Altlasten bereinigen --
 -- Usage History ausblenden --
 -- optional optimal new bookings --

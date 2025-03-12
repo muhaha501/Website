@@ -3,19 +3,19 @@
 /* syntax differs from univ lib in https://edu.dedisys.org/WBTServer/faces/main.jsp */
 
 /*pw: Go4one! */ /* dieser wird ein Passagier */
-Insert into user (username, password) values ('1234', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
+Insert into user (username, password) values ('1001', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
 /*pw: Go4one! */ /* dieser wird ein Passagier */
-Insert into user (username, password) values ('2345', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
+Insert into user (username, password) values ('1002', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
 /*pw: Go4one! */ /* dieser wird ein Passagier */
-Insert into user (username, password) values ('3456', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
+Insert into user (username, password) values ('1003', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
 /*pw: Go4one! */ /* dieser wird ein Mitarbeiter und Techniker */
-Insert into user (username, password) values ('7754', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
+Insert into user (username, password) values ('1100', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
 /*pw: Go4one! */ /* dieser wird ein Mitarbeiter und Techniker */
-Insert into user (username, password) values ('7457', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
+Insert into user (username, password) values ('1101', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
 /*pw: Go4two! */ /* dieser wird ein Mitarbeiter und Kapitaen */
-Insert into user (username, password) values ('6834', 'pbkdf2:sha256:260000$mpqrArAgux5YGorA$aeda075bfc2657fc7ff500ed15901e591ad81080920aa22121cb90ce758c855b');
+Insert into user (username, password) values ('1200', 'pbkdf2:sha256:260000$mpqrArAgux5YGorA$aeda075bfc2657fc7ff500ed15901e591ad81080920aa22121cb90ce758c855b');
 /*pw: Go4two! */ /* dieser wird ein Mitarbeiter und Kapitaen */
-Insert into user (username, password) values ('6541', 'pbkdf2:sha256:260000$mpqrArAgux5YGorA$aeda075bfc2657fc7ff500ed15901e591ad81080920aa22121cb90ce758c855b');
+Insert into user (username, password) values ('1201', 'pbkdf2:sha256:260000$mpqrArAgux5YGorA$aeda075bfc2657fc7ff500ed15901e591ad81080920aa22121cb90ce758c855b');
 /*pw: guest! Habe ich Rausgenummen um die Register Logik einfacher zu machen*/
 --Insert into user (username, password) values ('guest', 'pbkdf2:sha256:260000$MzkPXrPPnl7F5dN7$11fed544bf7be1e520e908eaaea1222d62e3b567b36853a68116b617ae75882f');
 
@@ -23,36 +23,36 @@ Insert into user (username, password) values ('6541', 'pbkdf2:sha256:260000$mpqr
 /*UNSERE DATEN FUER SCHIFFSFAHRT*/
 
 /*Passagiere*/
-Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('1234','01.10.95','Max','Dre','9613','Wien','Hauptstrasse','38');
-Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('2345','15.05.90', 'Anna', 'Müller', '1020', 'Wien', 'Ringstrasse', '12');
-Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('3456','22.11.85', 'Lukas', 'Schmidt', '8010', 'Graz', 'Bahnhofstrasse', '5');
-Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('4711','03.07.88', 'Sophie', 'Maier', '5020', 'Salzburg', 'Mozartplatz', '7');
-Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('5588','09.09.92', 'Felix', 'Huber', '4020', 'Linz', 'Landstrasse', '20');
+Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('1001','01.10.95','Max','Dre','9613','Wien','Hauptstrasse','38');
+Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('1002','15.05.90', 'Anna', 'Müller', '1020', 'Wien', 'Ringstrasse', '12');
+Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('1003','22.11.85', 'Lukas', 'Schmidt', '8010', 'Graz', 'Bahnhofstrasse', '5');
+Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('1004','03.07.88', 'Sophie', 'Maier', '5020', 'Salzburg', 'Mozartplatz', '7');
+Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('1005','09.09.92', 'Felix', 'Huber', '4020', 'Linz', 'Landstrasse', '20');
 /*Mitarbeiter Kapitaen*/
-Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('6541','18.12.97', 'Laura', 'Wagner', '6900', 'Bregenz', 'Seestrasse', '3');
-Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('6834','25.03.89', 'Thomas', 'Bauer', '6020', 'Innsbruck', 'Bergstrasse', '14');
-Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('6123','13.09.80', 'Peter', 'Huber', '3071', 'Böheimkirchen', 'Hauptsrtasse', '9');
+Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('1101','18.12.97', 'Laura', 'Wagner', '6900', 'Bregenz', 'Seestrasse', '3');
+Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('1102','25.03.89', 'Thomas', 'Bauer', '6020', 'Innsbruck', 'Bergstrasse', '14');
+Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('1103','13.09.80', 'Peter', 'Huber', '3071', 'Böheimkirchen', 'Hauptsrtasse', '9');
 /*Mitarbeiter Techniker*/
-Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('7457','30.06.94', 'Julia', 'Lehner', '3500', 'Krems', 'Donauweg', '9');
-Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('7754','05.08.91', 'Michael', 'Fischer', '2340', 'Mödling', 'Schulweg', '22');
-Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('8832','12.04.96', 'Clara', 'Beck', '3100', 'St. Pölten', 'Marktplatz', '11');
-Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('9912','17.02.93', 'Daniel', 'Gruber', '4400', 'Steyr', 'Lindenweg', '6');
-Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('9999','29.09.98', 'Sarah', 'Hofer', '7000', 'Eisenstadt', 'Hauptplatz', '15');
+Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('1200','30.06.94', 'Julia', 'Lehner', '3500', 'Krems', 'Donauweg', '9');
+Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('1201','05.08.91', 'Michael', 'Fischer', '2340', 'Mödling', 'Schulweg', '22');
+Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('1202','12.04.96', 'Clara', 'Beck', '3100', 'St. Pölten', 'Marktplatz', '11');
+Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('1203','17.02.93', 'Daniel', 'Gruber', '4400', 'Steyr', 'Lindenweg', '6');
+Insert into PERSON (PANR,GebDatum,VORNAME,NACHNAME,PLZ,ORT,STRASSE,Hausnummer) values ('1204','29.09.98', 'Sarah', 'Hofer', '7000', 'Eisenstadt', 'Hauptplatz', '15');
 
-INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ('0676/7894561','1234');
-INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ('02742/12744','1234');
-INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ('0664/6487554','9999');
-INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ('0677/8947564','7754');
-INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ('0676/1247896','7457');
-INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ('0664/4548851','2345');
+INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ('0676/7894561','1001');
+INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ('02742/12744','1001');
+INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ('0664/6487554','1101');
+INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ('0677/8947564','1102');
+INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ('0676/1247896','1200');
+INSERT into TELEFONNUMMER (TELNUMMER,PANR) values ('0664/4548851','1201');
 
-INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1001', 6541, 'AT12345678901234567890', 3500.00, 10000);
-INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1002', 6834, 'AT23456789012345678901', 4200.50, 20000);
-INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1003', 7457, 'AT34567890123456789012', 5000.00, 30000);
-INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1004', 7754, 'AT45678901234567890123', 3300.75, 40000);
-INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1005', 8832, 'AT56789012345678901234', 4800.20, 50000);
-INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1006', 9912, 'AT67890123456789012345', 5500.00, 10000);
-INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1007', 9999, 'AT78901234567890123456', 6000.00, 20000);
+INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1001', 1101, 'AT12345678901234567890', 3500.00, 10000);
+INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1002', 1102, 'AT23456789012345678901', 4200.50, 20000);
+INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1003', 1103, 'AT34567890123456789012', 5000.00, 30000);
+INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1004', 1201, 'AT45678901234567890123', 3300.75, 40000);
+INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1005', 1202, 'AT56789012345678901234', 4800.20, 50000);
+INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1006', 1203, 'AT67890123456789012345', 5500.00, 10000);
+INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1007', 1204, 'AT78901234567890123456', 6000.00, 20000);
 
 INSERT into Bank (Name, BLZ) values ('Deutsche Bank', 10000);
 INSERT into Bank (Name, BLZ) values ('Hypo Landesbank', 20000);
@@ -68,21 +68,21 @@ INSERT into Passage (Passagennummer, Abfahrtszeit, Ankunftszeit, Abfahrtshafen, 
 INSERT into Passage (Passagennummer, Abfahrtszeit, Ankunftszeit, Abfahrtshafen, Zielhafen) VALUES ('PS10005', '07:00', '11:45', 'Budapest', 'Wien');
 
 
-INSERT into Passagier (PassagierNr, PANr) values ('P-12564',1234);
-INSERT into Passagier (PassagierNr, PANr) values ('P-45687',2345);
-INSERT into Passagier (PassagierNr, PANr) values ('P-25864',3456);
-INSERT into Passagier (PassagierNr, PANr) values ('P-87954',4711);
-INSERT into Passagier (PassagierNr, PANr) values ('P-31456',5588);
+INSERT into Passagier (PassagierNr, PANr) values ('P-12564',1001);
+INSERT into Passagier (PassagierNr, PANr) values ('P-45687',1002);
+INSERT into Passagier (PassagierNr, PANr) values ('P-25864',1003);
+INSERT into Passagier (PassagierNr, PANr) values ('P-87954',1004);
+INSERT into Passagier (PassagierNr, PANr) values ('P-31456',1005);
 
-INSERT into Kapitaen (KapitaenpatentNr,Seemeilen,PANr) values ('K-12345',1512,6541);
-INSERT into Kapitaen (KapitaenpatentNr,Seemeilen,PANr) values ('K-90001',984,6834);
-INSERT into Kapitaen (KapitaenpatentNr,Seemeilen,PANr) values ('K-54645',345,6123);
+INSERT into Kapitaen (KapitaenpatentNr,Seemeilen,PANr) values ('K-12345',1512,1101);
+INSERT into Kapitaen (KapitaenpatentNr,Seemeilen,PANr) values ('K-90001',984,1102);
+INSERT into Kapitaen (KapitaenpatentNr,Seemeilen,PANr) values ('K-54645',345,1103);
 
-INSERT into Techniker (Lizenznummer,Ausbildung,Typennummer,PANr) values ('T-12345','HTL','DS006',7457);
-INSERT into Techniker (Lizenznummer,Ausbildung,Typennummer,PANr) values ('T-45648','Hochschule','DS001',7754);
-INSERT into Techniker (Lizenznummer,Ausbildung,Typennummer,PANr) values ('T-00011','HTL','DS003',8832);
-INSERT into Techniker (Lizenznummer,Ausbildung,Typennummer,PANr) values ('T-13001','Hochschule','DS002',9912);
-INSERT into Techniker (Lizenznummer,Ausbildung,Typennummer,PANr) values ('T-87400','Hochschule','DS004',9999);
+INSERT into Techniker (Lizenznummer,Ausbildung,Typennummer,PANr) values ('T-12345','HTL','DS006',1201);
+INSERT into Techniker (Lizenznummer,Ausbildung,Typennummer,PANr) values ('T-45648','Hochschule','DS001',1202);
+INSERT into Techniker (Lizenznummer,Ausbildung,Typennummer,PANr) values ('T-00011','HTL','DS003',1203);
+INSERT into Techniker (Lizenznummer,Ausbildung,Typennummer,PANr) values ('T-13001','Hochschule','DS002',1204);
+INSERT into Techniker (Lizenznummer,Ausbildung,Typennummer,PANr) values ('T-87400','Hochschule','DS004',1200);
 
 
 INSERT into Schiffstyp (Typennummer,Bruttoregistertonnen,Besatzungsstaerke,Typenbezeichnung, Herstellername) values ('DS001', 46328, 86, 'Raddampfer', 'Meyer Werft');
@@ -140,9 +140,9 @@ INSERT INTO Fahren (KapitaenpatentNr, Typennummer, Passagennummer) VALUES ('K-54
 
 
 
-INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB001', 'K-12345', NULL, '2025-01-01', 6541);
-INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB002', NULL, 'T-12345', '2025-01-02', 6541);
-INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB003', 'K-90001', NULL, '2025-01-03', 6834);
-INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB004', NULL, 'T-12345', '2025-01-04', 6541);
-INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB005', 'K-90001', NULL, '2025-01-05', 6834);
-INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB006', NULL, 'T-00011', '2025-01-06', 8832);
+INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB001', 'K-12345', NULL, '2025-01-01', 1200);
+INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB002', NULL, 'T-12345', '2025-01-02', 1200);
+INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB003', 'K-90001', NULL, '2025-01-03', 1101);
+INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB004', NULL, 'T-12345', '2025-01-04', 1200);
+INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB005', 'K-90001', NULL, '2025-01-05', 1102);
+INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB006', NULL, 'T-00011', '2025-01-06', 1203);
