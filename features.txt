@@ -45,11 +45,11 @@ Layout (Nicht so wichtig)
 
 DONE  -- User und Personen bereinigen (keine höhere PANr als 2000) -- DONE (Neue Initialisierung der DB fehlt noch)
 -- Altlasten bereinigen --
--- Usage History ausblenden --
+DONE -- Usage History ausblenden -- DONE
 -- optional optimal new bookings --
 -- Profil updaten --
 -- Techniker darf nur Logbücher ausleihen von Schiffen die sie warten dürfen (und evtl. auch nur sehen) --
 -- Error Handling bei Logbüchern --
--- Home Button auf Firmen Logo legen --
+DONE -- Home Button auf Firmen Logo legen -- DONE
 -- Denglisch ausbessern --
 -- Datum einheitliches Format bringen -- 

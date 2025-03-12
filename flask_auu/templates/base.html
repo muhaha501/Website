@@ -25,7 +25,7 @@
 <header>
   <nav class="navbar navbar-expand-md fixed-top navbar-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">FH D.D.F.</a>
+      <a class="navbar-brand" href="/">FH D.D.F.</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -34,17 +34,6 @@
 {% if g.user %}
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Exams
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/exams">Exams taken</a>
-            </ul>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Bookings
@@ -60,15 +49,6 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/employee">show employee resumes</a>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Library
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/library/borrowedbooks">Borrow Books</a>
-              <a class="dropdown-item" href="/library/search">Search Book Title</a>
             </ul>
           </li>
         </ul>
@@ -121,10 +101,11 @@
 
 
 <main>
+<!-- Usage History
     {% for message in get_flashed_messages() %}
     <div class="flash">{{ message }}</div>
      {% endfor %}
-
+-->
     {% block content %}
     {% endblock %}
 
