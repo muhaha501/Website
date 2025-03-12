@@ -68,22 +68,15 @@
 {% else %}
     <div class="collapse navbar-collapse" id="navbarSupportedContent2">
     <ul class="navbar-nav me-auto mb-2 mb-md-0">
-           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Login
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ url_for('auth.login') }}">Login</a>
-            </ul>
           </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown5" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Register
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item"  href="{{ url_for('auth.register') }}">Register</a>
-            </ul>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('auth.login') }}">Login</a>
           </li>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('auth.register') }}">Register</a>
+          </li>
+
         </ul>
       </div>
 {% endif %}
