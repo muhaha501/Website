@@ -52,4 +52,4 @@ DONE -- Usage History ausblenden -- DONE
 -- Error Handling bei Logbüchern --
 DONE -- Home Button auf Firmen Logo legen -- DONE
 -- Denglisch ausbessern --
--- Datum einheitliches Format bringen -- 
+DONE -- Datum einheitliches Format bringen -- DONE

@@ -73,20 +73,20 @@ def employee():
     
     # Alle ausgeliehennen Bücher
     ausgeliehen = db.execute(
-        ' select LogbuchNr, Datum, Vorname, Nachname, S.PANR'
+        " select LogbuchNr, strftime('%d.%m.%Y', Datum) as Datum, Vorname, Nachname, S.PANR"
         ' from Status_der_Entlehnung S '
         ' join Person P on S.PANr = P.PANr'
         ' order by LogbuchNr'
     ).fetchall()
 
     techniker = db.execute(
-            'SELECT Vorname, Nachname, Gebdatum, AngestelltenNr, Kontonummer, Kontostand, BLZ, Person.PANr as PANr, Techniker.Lizenznummer as Lizenznummer, Techniker.Typennummer as Typennummer' 
+            " SELECT Vorname, Nachname, strftime('%d.%m.%Y', Gebdatum) as Gebdatum, AngestelltenNr, Kontonummer, Kontostand, BLZ, Person.PANr as PANr, Techniker.Lizenznummer as Lizenznummer, Techniker.Typennummer as Typennummer" 
             ' FROM Person, Angestellter_besitzt_Gehaltskonto, Techniker'
             ' WHERE Person.PANr = Angestellter_besitzt_Gehaltskonto.PANr and Person.PANr = Techniker.PANr and Person.PANr = ? ', (g.user['username'],)
     ).fetchone()
 
     kapitaen = db.execute(
-            'SELECT Vorname, Nachname, Gebdatum, AngestelltenNr, Kontonummer, Kontostand, BLZ, Person.PANr as PANr, Kapitaen.KapitaenpatentNr' 
+            " SELECT Vorname, Nachname, strftime('%d.%m.%Y', Gebdatum) as Gebdatum, AngestelltenNr, Kontonummer, Kontostand, BLZ, Person.PANr as PANr, Kapitaen.KapitaenpatentNr "
             ' FROM Person, Angestellter_besitzt_Gehaltskonto, Kapitaen'
             ' WHERE Person.PANr = Angestellter_besitzt_Gehaltskonto.PANr and Person.PANr = Kapitaen.PANr and Person.PANr = ? ', (g.user['username'],)
     ).fetchone()
@@ -98,7 +98,7 @@ def employee():
             ' WHERE Techniker.Typennummer = Schiffstyp.Typennummer and Techniker.PANr = ?', (techniker['PANr'],)
         ).fetchall()
         schifflist = db.execute(
-            ' SELECT Schiffstyp.Herstellername as Herstellername, InventarNr, Baujahr, Seemeilen, LogbuchNr'
+            " SELECT Schiffstyp.Herstellername as Herstellername, InventarNr, strftime('%d.%m.%Y', Baujahr) as Baujahr, Seemeilen, LogbuchNr"
             ' from Schiffstyp '
             ' join Schiffexemplar_hat_Logbuch on Schiffstyp.Typennummer = Schiffexemplar_hat_Logbuch.Typennummer'
             ' where '
@@ -107,7 +107,7 @@ def employee():
         return render_template('employee/techniker.html', emplpers=techniker, technikerlist=schiffstyp, schifflist=schifflist, ausgeliehen=ausgeliehen)
     if kapitaen is not None:
         future_passages = db.execute(
-            ' select Buchen.Passagennummer, Buchen.Datum, Passage.Abfahrtshafen, Passage.Zielhafen, Schiffstyp.Herstellername, Schiffstyp.Typenbezeichnung'
+            " select Buchen.Passagennummer, strftime('%d.%m.%Y', Buchen.Datum) as Datum, Passage.Abfahrtshafen, Passage.Zielhafen, Schiffstyp.Herstellername, Schiffstyp.Typenbezeichnung "
             ' from Kapitaen '
             ' join Fahren on Kapitaen.KapitaenpatentNr = Fahren.KapitaenpatentNr '
             ' join Buchen on Fahren.Passagennummer = Buchen.Passagennummer '
@@ -116,7 +116,7 @@ def employee():
             " where Fahren.KapitaenpatentNr = ? and date(Buchen.Datum) <= date('now'); ", (kapitaen['KapitaenpatentNr'],)
         ).fetchall()
         past_passages = db.execute(
-            ' select Buchen.Passagennummer, Buchen.Datum, Passage.Abfahrtshafen, Passage.Zielhafen, Schiffstyp.Herstellername, Schiffstyp.Typenbezeichnung'
+            " select Buchen.Passagennummer, strftime('%d.%m.%Y', Buchen.Datum) as Datum, Passage.Abfahrtshafen, Passage.Zielhafen, Schiffstyp.Herstellername, Schiffstyp.Typenbezeichnung"
             ' from Kapitaen '
             ' join Fahren on Kapitaen.KapitaenpatentNr = Fahren.KapitaenpatentNr '
             ' join Buchen on Fahren.Passagennummer = Buchen.Passagennummer '

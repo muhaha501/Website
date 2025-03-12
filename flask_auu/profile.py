@@ -10,7 +10,7 @@ def profile():
     db = get_db()
     
     user_data = db.execute(
-        'SELECT VORNAME, NACHNAME, GebDatum, PLZ, ORT, STRASSE, Hausnummer FROM PERSON WHERE PANR = ?', 
+        "SELECT VORNAME, NACHNAME, strftime('%d.%m.%Y', GebDatum) as GebDatum, PLZ, ORT, STRASSE, Hausnummer FROM PERSON WHERE PANR = ?",
         (g.user['username'],)
     ).fetchone()
 

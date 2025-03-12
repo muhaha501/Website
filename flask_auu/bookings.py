@@ -20,7 +20,7 @@ def bookings():
 
     db = get_db()
     passpers = db.execute(
-            'SELECT Vorname, Nachname, Gebdatum, Passagiernr' 
+            "SELECT Vorname, Nachname, strftime('%d.%m.%Y', Gebdatum) as Gebdatum, Passagiernr" 
             ' FROM Person, Passagier'
             ' WHERE Person.PANr = Passagier.PANr and Person.PANr = ? ', (g.user['username'],)
     ).fetchone()
@@ -31,14 +31,14 @@ def bookings():
     if passpers is not None:
         bookinglist_future = db.execute(
             #Remark: " instead of ' because of SQL internal string concatenation
-            'SELECT buchungsnummer, datum, klasse, abfahrtszeit, ankunftszeit, abfahrtshafen, zielhafen'
+            "SELECT buchungsnummer, strftime('%d.%m.%Y', datum) as datum, klasse, abfahrtszeit, ankunftszeit, abfahrtshafen, zielhafen"
             ' FROM Buchen, Passage'
             " WHERE Buchen.Passagennummer = Passage.Passagennummer AND Buchen.PassagierNr = ? and date(Datum) >= date('now')"
             ' order by datum', (passpers['PassagierNr'],)
         ).fetchall()
         bookinglist_past = db.execute(
             #Order by date latest first
-            'SELECT buchungsnummer, datum, klasse, abfahrtszeit, ankunftszeit, abfahrtshafen, zielhafen'
+            "SELECT buchungsnummer, strftime('%d.%m.%Y', datum) as datum, klasse, abfahrtszeit, ankunftszeit, abfahrtshafen, zielhafen"
             ' FROM Buchen, Passage'
             " WHERE Buchen.Passagennummer = Passage.Passagennummer AND Buchen.PassagierNr = ? and date(Datum) < date('now')"
             ' order by datum DESC', (passpers['PassagierNr'],)

@@ -11,7 +11,7 @@ Insert into user (username, password) values ('1003', 'pbkdf2:sha256:260000$TE7r
 /*pw: Go4one! */ /* dieser wird ein Mitarbeiter und Techniker */
 Insert into user (username, password) values ('1200', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
 /*pw: Go4one! */ /* dieser wird ein Mitarbeiter und Techniker */
-Insert into user (username, password) values ('1201', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
+Insert into user (username, password) values ('1204', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
 /*pw: Go4two! */ /* dieser wird ein Mitarbeiter und Kapitaen */
 Insert into user (username, password) values ('1100', 'pbkdf2:sha256:260000$mpqrArAgux5YGorA$aeda075bfc2657fc7ff500ed15901e591ad81080920aa22121cb90ce758c855b');
 /*pw: Go4two! */ /* dieser wird ein Mitarbeiter und Kapitaen */
