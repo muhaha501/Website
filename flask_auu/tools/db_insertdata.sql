@@ -121,6 +121,9 @@ INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennum
 INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennummer, LogbuchNr) values ('SE1008', 2020, 180000, 'DS002', 'LB008');
 INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennummer, LogbuchNr) values ('SE1009', 2017, 300000, 'DS004', 'LB009');
 INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennummer, LogbuchNr) values ('SE1010', 2021, 250000, 'DS005', 'LB010');
+INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennummer, LogbuchNr) values ('SE1011', 2020, 125000, 'DS006', 'LB011');
+INSERT into Schiffexemplar_hat_Logbuch (InventarNr, Baujahr, Seemeilen, Typennummer, LogbuchNr) values ('SE1012', 2023, 100000, 'DS006', 'LB012');
+
 
 INSERT INTO Buchen (Buchungsnummer, Datum, Klasse, PassagierNr, Passagennummer)
 VALUES ('B001', '2025-03-01', 1, 'P-12564', 'PS10001');

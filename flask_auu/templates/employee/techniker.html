@@ -54,8 +54,7 @@
 			<tbody>
             {% for entry in schifflist %}
                 <!-- dict keys in examlist as defined in the SQL statement in exams.py-->
-
-            <tr><td>{{ entry['Herstellername'] }}</td><td>{{ entry['InventarNr'] }}</td><td>{{ entry['Baujahr'] }}</td><td>{{ entry['Seemeilen'] }}</td><td>{{ entry['LogbuchNr'] }}</td></tr>
+                <tr><td>{{ entry['Herstellername'] }}</td><td>{{ entry['InventarNr'] }}</td><td>{{ entry['Baujahr'] }}</td><td>{{ entry['Seemeilen'] }}</td><td>{{ entry['LogbuchNr'] }}</td></tr>
              {% endfor %}
 			</tbody>
 		</table>

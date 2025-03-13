@@ -53,31 +53,33 @@ def employee():
 
             if logbuch_exists:
                 techniker = db.execute(
-                    'SELECT Lizenznummer FROM Techniker WHERE PANr = ?', (g.user['username'],)
+                    'SELECT Lizenznummer'
+                    ' FROM Techniker T'
+                    ' JOIN Schiffexemplar_hat_Logbuch S on T.Typennummer = S.Typennummer'
+                    ' WHERE PANr = ? AND Logbuchnr = ?', (g.user['username'],logbuchnr)
                 ).fetchone()
                 kapitaen = db.execute(
                     'SELECT KapitaenpatentNr FROM Kapitaen WHERE PANr = ?', (g.user['username'],)
                 ).fetchone()
 
                 if techniker:
-                    db.execute(
-                        "INSERT INTO STATUS_der_ENTLEHNUNG (LogbuchNr, TechnikerNr, Datum, PANr) VALUES (?, ?, DATE('now'), ?)",
-                        (logbuchnr, techniker['Lizenznummer'], g.user['username']),
-                    )
+                    try:
+                        db.execute(
+                            "INSERT INTO STATUS_der_ENTLEHNUNG (LogbuchNr, TechnikerNr, Datum, PANr) VALUES (?, ?, DATE('now'), ?)",
+                            (logbuchnr, techniker['Lizenznummer'], g.user['username']),
+                        )
+                    except:
+                        pass
                 elif kapitaen:
-                    db.execute(
-                        "INSERT INTO STATUS_der_ENTLEHNUNG (LogbuchNr, KapitaenpatentNr, Datum, PANr) VALUES (?, ?, DATE('now'), ?)",
-                        (logbuchnr, kapitaen['KapitaenpatentNr'], g.user['username']),
-                    )
+                    try:
+                        db.execute(
+                            "INSERT INTO STATUS_der_ENTLEHNUNG (LogbuchNr, KapitaenpatentNr, Datum, PANr) VALUES (?, ?, DATE('now'), ?)",
+                            (logbuchnr, kapitaen['KapitaenpatentNr'], g.user['username']),
+                        )
+                    except:
+                        pass
                 db.commit()
-    
-    # Alle ausgeliehennen Bücher
-    ausgeliehen = db.execute(
-        " select LogbuchNr, strftime('%d.%m.%Y', Datum) as Datum, Vorname, Nachname, S.PANR"
-        ' from Status_der_Entlehnung S '
-        ' join Person P on S.PANr = P.PANr'
-        ' order by LogbuchNr'
-    ).fetchall()
+
 
     techniker = db.execute(
             " SELECT Vorname, Nachname, strftime('%d.%m.%Y', Gebdatum) as Gebdatum, AngestelltenNr, Kontonummer, Kontostand, BLZ, Person.PANr as PANr, Techniker.Lizenznummer as Lizenznummer, Techniker.Typennummer as Typennummer" 
@@ -98,13 +100,20 @@ def employee():
             ' WHERE Techniker.Typennummer = Schiffstyp.Typennummer and Techniker.PANr = ?', (techniker['PANr'],)
         ).fetchall()
         schifflist = db.execute(
-            " SELECT Schiffstyp.Herstellername as Herstellername, InventarNr, strftime('%d.%m.%Y', Baujahr) as Baujahr, Seemeilen, LogbuchNr"
+            " SELECT Schiffstyp.Herstellername as Herstellername, InventarNr, Baujahr, Seemeilen, LogbuchNr"
             ' from Schiffstyp '
             ' join Schiffexemplar_hat_Logbuch on Schiffstyp.Typennummer = Schiffexemplar_hat_Logbuch.Typennummer'
-            ' where '
-            ' Schiffstyp.Typennummer = ?', (techniker['Typennummer'],)
+            ' where Schiffstyp.Typennummer = ?', (techniker['Typennummer'],) 
         ).fetchall()
-        return render_template('employee/techniker.html', emplpers=techniker, technikerlist=schiffstyp, schifflist=schifflist, ausgeliehen=ausgeliehen)
+        ausgeliehen_tech = db.execute(
+        " select S.LogbuchNr, strftime('%d.%m.%Y', Datum) as Datum, Vorname, Nachname, S.PANR"
+        ' from Status_der_Entlehnung S '
+        ' join Person P on S.PANr = P.PANr'
+        ' join Schiffexemplar_hat_Logbuch T on S.LogbuchNr = T.LogbuchNr'
+        ' WHERE T.Typennummer = ?'
+        ' order by S.LogbuchNr', (techniker['Typennummer'],)
+        ).fetchall()
+        return render_template('employee/techniker.html', emplpers=techniker, technikerlist=schiffstyp, schifflist=schifflist, ausgeliehen=ausgeliehen_tech)
     if kapitaen is not None:
         future_passages = db.execute(
             " select Buchen.Passagennummer, strftime('%d.%m.%Y', Buchen.Datum) as Datum, Passage.Abfahrtshafen, Passage.Zielhafen, Schiffstyp.Herstellername, Schiffstyp.Typenbezeichnung "
@@ -124,7 +133,13 @@ def employee():
             ' join Schiffstyp on Fahren.Typennummer = Schiffstyp.Typennummer'
             " where Fahren.KapitaenpatentNr = ? and date(Buchen.Datum) > date('now'); ", (kapitaen['KapitaenpatentNr'],)
         ).fetchall()
-        return render_template('employee/kapitaen.html', emplpers=kapitaen, future_passages=future_passages, past_passages=past_passages, ausgeliehen=ausgeliehen )
+        ausgeliehen_all = db.execute(
+        " select LogbuchNr, strftime('%d.%m.%Y', Datum) as Datum, Vorname, Nachname, S.PANR"
+        ' from Status_der_Entlehnung S '
+        ' join Person P on S.PANr = P.PANr'
+        ' order by LogbuchNr'
+        ).fetchall()
+        return render_template('employee/kapitaen.html', emplpers=kapitaen, future_passages=future_passages, past_passages=past_passages, ausgeliehen=ausgeliehen_all )
 
     return render_template('non_employee/non_employee.html',)
 
