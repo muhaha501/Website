@@ -1,3 +1,4 @@
+import sqlite3
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
@@ -15,7 +16,7 @@ def employee():
 
     #document the session
     session['history'] = session['history'] + "/employee\n ... "
-    flash(session['history'])
+    #flash(session['history'])
 
 
    
@@ -28,6 +29,7 @@ def employee():
             techniker = db.execute(
                 'SELECT Lizenznummer FROM Techniker WHERE PANr = ?', (g.user['username'],)
             ).fetchone()
+
             kapitaen = db.execute(
                 'SELECT KapitaenpatentNr FROM Kapitaen WHERE PANr = ?', (g.user['username'],)
             ).fetchone()
@@ -43,7 +45,7 @@ def employee():
                     (returnlogbuch, kapitaen['KapitaenpatentNr'])
                 )
             db.commit()
-
+ 
         elif 'logbuchnr' in request.form:
             logbuchnr = request.form['logbuchnr']
 
@@ -68,17 +70,29 @@ def employee():
                             "INSERT INTO STATUS_der_ENTLEHNUNG (LogbuchNr, TechnikerNr, Datum, PANr) VALUES (?, ?, DATE('now'), ?)",
                             (logbuchnr, techniker['Lizenznummer'], g.user['username']),
                         )
-                    except:
-                        pass
+                        flash(f"Logbook {logbuchnr} sucessfully checked out!", "success")
+                    except (sqlite3.Error) as e:
+                        if "UNIQUE constraint failed" in str(e):
+                            flash(f"Logbook {logbuchnr} already checked out! Choose a different one.", "danger")
+                        else: 
+                            flash("Database Error", "danger")
                 elif kapitaen:
                     try:
                         db.execute(
                             "INSERT INTO STATUS_der_ENTLEHNUNG (LogbuchNr, KapitaenpatentNr, Datum, PANr) VALUES (?, ?, DATE('now'), ?)",
                             (logbuchnr, kapitaen['KapitaenpatentNr'], g.user['username']),
                         )
-                    except:
-                        pass
+                        flash(f"Logbook {logbuchnr} sucessfully checked out!", "success")
+                    except (sqlite3.Error) as e:
+                        if "UNIQUE constraint failed" in str(e):
+                            flash(f"Logbook {logbuchnr} already checked out! Choose a different one.", "danger")
+                        else: 
+                            flash("Database Error", "danger")
+                else: 
+                    flash(f"Not permitted to check out Logbook: {logbuchnr} \n Choose a logbook you are permitted to check out!", "danger")
                 db.commit()
+            else:
+                flash(f"Not possible to check out Logbook: {logbuchnr} \n Logbook does not exist", "danger")
 
 
     techniker = db.execute(
@@ -122,7 +136,7 @@ def employee():
             ' join Buchen on Fahren.Passagennummer = Buchen.Passagennummer '
             ' join Passage on Buchen.Passagennummer = Passage.Passagennummer'
             ' join Schiffstyp on Fahren.Typennummer = Schiffstyp.Typennummer'
-            " where Fahren.KapitaenpatentNr = ? and date(Buchen.Datum) <= date('now'); ", (kapitaen['KapitaenpatentNr'],)
+            " where Fahren.KapitaenpatentNr = ? and date(Buchen.Datum) >= date('now'); ", (kapitaen['KapitaenpatentNr'],)
         ).fetchall()
         past_passages = db.execute(
             " select Buchen.Passagennummer, strftime('%d.%m.%Y', Buchen.Datum) as Datum, Passage.Abfahrtshafen, Passage.Zielhafen, Schiffstyp.Herstellername, Schiffstyp.Typenbezeichnung"
@@ -131,7 +145,7 @@ def employee():
             ' join Buchen on Fahren.Passagennummer = Buchen.Passagennummer '
             ' join Passage on Buchen.Passagennummer = Passage.Passagennummer'
             ' join Schiffstyp on Fahren.Typennummer = Schiffstyp.Typennummer'
-            " where Fahren.KapitaenpatentNr = ? and date(Buchen.Datum) > date('now'); ", (kapitaen['KapitaenpatentNr'],)
+            " where Fahren.KapitaenpatentNr = ? and date(Buchen.Datum) < date('now'); ", (kapitaen['KapitaenpatentNr'],)
         ).fetchall()
         ausgeliehen_all = db.execute(
         " select LogbuchNr, strftime('%d.%m.%Y', Datum) as Datum, Vorname, Nachname, S.PANR"

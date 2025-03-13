@@ -73,7 +73,7 @@ def register():
                 return redirect(url_for('auth.login'))
 
         # in case of error
-        flash(error)
+        flash(error, "danger")
 
     db = get_db()
     pannr = int(db.execute(
@@ -113,7 +113,7 @@ def login():
             session['user_id'] = user['id']
             return redirect(url_for('index'))
 
-        flash(error)
+        flash(error, "danger")
 
     return render_template('auth/login.html')
 

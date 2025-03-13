@@ -156,9 +156,9 @@ INSERT INTO Fahren (KapitaenpatentNr, Typennummer, Passagennummer) VALUES ('K-54
 
 
 
-INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB001', 'K-12345', NULL, '2025-01-01', 1200);
+INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB001', 'K-12345', NULL, '2025-01-01', 1100);
 INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB002', NULL, 'T-12345', '2025-01-02', 1200);
-INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB003', 'K-90001', NULL, '2025-01-03', 1100);
+INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB003', 'K-90001', NULL, '2025-01-03', 1101);
 INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB004', NULL, 'T-12345', '2025-01-04', 1200);
 INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB005', 'K-90001', NULL, '2025-01-05', 1101);
-INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB006', NULL, 'T-00011', '2025-01-06', 1203);
+INSERT INTO Status_der_Entlehnung (LogbuchNr, KapitaenpatentNr, TechnikerNr, DATUM, PANr) VALUES ('LB006', NULL, 'T-00011', '2025-01-06', 1202);

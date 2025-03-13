@@ -15,7 +15,7 @@ def index():
 
     #document the session
     session['history'] = session['history'] + "/index\n ... "
-    flash(session['history'])
+    #flash(session['history'])
 
     db = get_db()
     passpers = None

@@ -18,7 +18,7 @@ def search():
 
     #document the session
     session['history'] = session['history'] + "/library/search\n ... "
-    flash(session['history'])
+    #flash(session['history'])
 
     if request.method == 'POST':
         bookname = request.form['bookname']

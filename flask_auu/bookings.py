@@ -16,7 +16,7 @@ def bookings():
 
     #document the session
     session['history'] = session['history'] + "/bookings\n ... "
-    flash(session['history'])
+    #flash(session['history'])
 
     db = get_db()
     passpers = db.execute(

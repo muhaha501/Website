@@ -49,7 +49,7 @@ DONE -- Usage History ausblenden -- DONE
 -- optional optimal new bookings --
 -- Profil updaten --
 DONE -- Techniker darf nur Logbücher ausleihen von Schiffen die sie warten dürfen (und evtl. auch nur sehen) -- DONE
--- Error Handling bei Logbüchern --
+-- Error Handling bei Logbüchern -- Ausleihen DONE -- Return to do
 DONE -- Home Button auf Firmen Logo legen -- DONE
 -- Denglisch ausbessern --
 DONE -- Datum einheitliches Format bringen -- DONE

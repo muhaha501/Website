@@ -15,7 +15,7 @@ def exams():
 
     #document the session
     session['history'] = session['history'] + "/exams\n ... "
-    flash(session['history'])
+    #flash(session['history'])
 
     db = get_db()
     matrnrper = db.execute(
