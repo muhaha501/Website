@@ -26,25 +26,44 @@ def employee():
         if 'returnlogbuch' in request.form:
             returnlogbuch = request.form['returnlogbuch']
 
-            techniker = db.execute(
-                'SELECT Lizenznummer FROM Techniker WHERE PANr = ?', (g.user['username'],)
+            logbuch_return = db.execute(
+                'SELECT * FROM Status_der_Entlehnung WHERE LogbuchNr = ?', (returnlogbuch,)
+            ).fetchone()
+            logbuch_check = db.execute(
+                "SELECT * FROM Schiffexemplar_hat_Logbuch WHERE LogbuchNr = ?", (returnlogbuch,)
             ).fetchone()
 
-            kapitaen = db.execute(
-                'SELECT KapitaenpatentNr FROM Kapitaen WHERE PANr = ?', (g.user['username'],)
-            ).fetchone()
+            if not logbuch_check:
+                flash(f"Logbook {returnlogbuch} does not exist! Try another Logbook.", "danger")
+                return redirect(request.url)
+            
+            if logbuch_return:
 
-            if techniker:
-                db.execute(
-                    'DELETE FROM STATUS_der_ENTLEHNUNG WHERE LogbuchNr = ? AND TechnikerNr = ?',
-                    (returnlogbuch, techniker['Lizenznummer'])
-                )
-            elif kapitaen:
-                db.execute(
-                    'DELETE FROM STATUS_der_ENTLEHNUNG WHERE LogbuchNr = ? AND KapitaenpatentNr = ?',
-                    (returnlogbuch, kapitaen['KapitaenpatentNr'])
-                )
-            db.commit()
+                techniker = db.execute(
+                    'SELECT Lizenznummer FROM Techniker WHERE PANr = ?', (g.user['username'],)
+                ).fetchone()
+
+                kapitaen = db.execute(
+                    'SELECT KapitaenpatentNr FROM Kapitaen WHERE PANr = ?', (g.user['username'],)
+                ).fetchone()
+
+                if techniker and techniker['Lizenznummer'] == logbuch_return['TechnikerNr']:
+                    db.execute(
+                        'DELETE FROM STATUS_der_ENTLEHNUNG WHERE LogbuchNr = ? AND TechnikerNr = ?',
+                        (returnlogbuch, techniker['Lizenznummer'])
+                    )
+                    flash("Logbook successfully returned!", "success")
+                elif kapitaen and kapitaen['KapitaenpatentNr'] == logbuch_return['KapitaenpatentNr']:
+                    db.execute(
+                        'DELETE FROM STATUS_der_ENTLEHNUNG WHERE LogbuchNr = ? AND KapitaenpatentNr = ?',
+                        (returnlogbuch, kapitaen['KapitaenpatentNr'])
+                    )
+                    flash("Logbook successfully returned!", "success")
+                else:
+                    flash(f"Can't return Logbook {returnlogbuch}! \n Select a Logbook you have checked out!", "danger")
+                db.commit()
+            else:
+                flash(f"Logbook {returnlogbuch} has not been checked out! Try another Logbook.", "danger")
  
         elif 'logbuchnr' in request.form:
             logbuchnr = request.form['logbuchnr']

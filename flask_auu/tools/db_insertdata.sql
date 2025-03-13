@@ -66,6 +66,7 @@ INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer
 INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1005', 1201, 'AT56789012345678901234', 4800.20, 50000);
 INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1006', 1202, 'AT67890123456789012345', 5500.00, 10000);
 INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1007', 1203, 'AT78901234567890123456', 6000.00, 20000);
+INSERT into Angestellter_besitzt_Gehaltskonto (AngestelltenNr, PANr, Kontonummer, Kontostand, BLZ) values ('A1008', 1204, 'AT71234234567890123456', 1200.00, 50000);
 
 INSERT into Bank (Name, BLZ) values ('Deutsche Bank', 10000);
 INSERT into Bank (Name, BLZ) values ('Hypo Landesbank', 20000);
