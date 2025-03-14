@@ -43,13 +43,22 @@ DONE -- Begonnen: Profile page                                              -- D
 Weitere ideen:
 Layout (Nicht so wichtig)
 
-DONE  -- User und Personen bereinigen (keine höhere PANr als 2000) -- DONE (Neue Initialisierung der DB fehlt noch)
--- Altlasten bereinigen --
+
+DONE  -- User und Personen bereinigen (keine höhere PANr als 2000) -- DONE
 DONE -- Usage History ausblenden -- DONE
--- optional optimal new bookings --
 DONE -- Profil updaten -- DONE
 DONE -- Techniker darf nur Logbücher ausleihen von Schiffen die sie warten dürfen (und evtl. auch nur sehen) -- DONE
-DONE -- Error Handling bei Logbüchern --  DONE 
+DONE -- Error Handling bei Logbüchern --  DONE
 DONE -- Home Button auf Firmen Logo legen -- DONE
--- Denglisch ausbessern --
 DONE -- Datum einheitliches Format bringen -- DONE
+
+Angefangen -- optional optimal new bookings -- Angefangen
+Weitere Vorschläge zur Verbesserung:
+    - Errorhandling
+    - Bilder passend zur Route
+    - Kein Datum in der Vergangenheit wählbar
+    - Preis Anzeige
+    - uvm.
+
+-- Denglisch ausbessern --
+-- Altlasten bereinigen --
