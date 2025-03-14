@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container marketing">
+    <div class="signpost"><h1>Update Profile</h1></div>
+    <p>Here you can update your Profile.</p>
+    <hr class="featurette-divider">
+    
+
+    <div class="row">
+        <!-- Linke Spalte: Update Profile -->
+        <div class="col-md-6">
+            <form method="post" name="update_profile" class="needs-validation" novalidate>
+                <h2>Personal Data</h2>
+                <!-- Username -->
+                <div class="form-group">
+                    <label for="username" class="form-label">PANr</label>
+                    <input type="text" class="form-control" id="username" name="username" value="{{ g.user['username'] }}" readonly>
+                </div>
+
+                <!-- Name and Surname -->
+                <div class="mb-3">
+                    <label for="name" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{ user_data['VORNAME'] }}" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label for="surname" class="form-label">Surname</label>
+                    <input type="text" class="form-control" id="surname" name="surname" value="{{ user_data['NACHNAME']}}" readonly>
+                </div>
+
+                <!-- Date of Birth -->
+                <div class="mb-3">
+                    <label for="dob" class="form-label">Date of Birth</label>
+                    <input type="text" class="form-control" id="dob" name="date_of_birth" value="{{ user_data['GebDatum'] }}" readonly>
+                </div>
+
+                <!-- Address -->
+                <h2>Address</h2>
+                <div class="mb-3">
+                    <label for="plz" class="form-label">Postal Code (ZIP)</label>
+                    <input type="text" class="form-control" id="plz" name="plz" value="{{ user_data['PLZ'] }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="ort" class="form-label">City</label>
+                    <input type="text" class="form-control" id="ort" name="ort" value="{{ user_data['ORT'] }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="street" class="form-label">Street</label>
+                    <input type="text" class="form-control" id="street" name="street" value="{{ user_data['STRASSE'] }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="hausnummer" class="form-label">House number</label>
+                    <input type="text" class="form-control" id="hausnummer" name="hausnummer" value="{{ user_data['Hausnummer'] }}" required>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Rechte Spalte: Phone Numbers -->
+        <div class="col-md-6">
+            <h3>Phone Numbers</h3>
+            <ul>
+                {% for tels in tel_data %}
+                    <li>{{ tels['TELNUMMER'] }}</li>
+                {% endfor %}
+            </ul>
+
+            <h5>Add New Phone Number</h5>
+            <form method="post" name="add_phonenr">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="add_phonenr" placeholder="Phone number" required>
+                    <button type="submit" class="btn btn-success">Add</button>
+                </div>
+            </form>
+
+            <h5>Remove Existing Phone Number</h5>
+            <form method="post" name="remove_phonenr">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="remove_phonenr" placeholder="Phone number" required>
+                    <button type="submit" class="btn btn-danger">Remove</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

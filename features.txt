@@ -47,7 +47,7 @@ DONE  -- User und Personen bereinigen (keine höhere PANr als 2000) -- DONE (Neu
 -- Altlasten bereinigen --
 DONE -- Usage History ausblenden -- DONE
 -- optional optimal new bookings --
--- Profil updaten --
+DONE -- Profil updaten -- DONE
 DONE -- Techniker darf nur Logbücher ausleihen von Schiffen die sie warten dürfen (und evtl. auch nur sehen) -- DONE
 DONE -- Error Handling bei Logbüchern --  DONE 
 DONE -- Home Button auf Firmen Logo legen -- DONE

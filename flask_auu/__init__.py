@@ -71,5 +71,6 @@ def create_app(test_config=None):
     from . import profile
     app.register_blueprint(profile.bp)
     app.add_url_rule('/profile', endpoint='profile')
+    app.add_url_rule('/profile_update', endpoint='profile_update')
 
     return app
