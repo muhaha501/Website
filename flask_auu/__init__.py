@@ -50,23 +50,24 @@ def create_app(test_config=None):
     app.register_blueprint(auu.bp)
     app.add_url_rule('/', endpoint='index')
 
-    from . import exams
-    app.register_blueprint(exams.bp)
-    app.add_url_rule('/exams', endpoint='exams')
+    #from . import exams
+    #app.register_blueprint(exams.bp)
+    #app.add_url_rule('/exams', endpoint='exams')
 
     from . import bookings
     app.register_blueprint(bookings.bp)
     app.add_url_rule('/bookings', endpoint='bookings')
+    app.add_url_rule('/bookings/new_booking', endpoint='new_bookings')
 
     from . import employee
     app.register_blueprint(employee.bp)
     app.add_url_rule('/employee', endpoint='employee')
 
-    from . import library
-    app.register_blueprint(library.bp)
-    app.add_url_rule('/library', endpoint='search')
-    app.add_url_rule('/library/search', endpoint='search')
-    app.add_url_rule('/library/borrowedbooks', endpoint='borrowedbooks')
+    #from . import library
+    #app.register_blueprint(library.bp)
+    #app.add_url_rule('/library', endpoint='search')
+    #app.add_url_rule('/library/search', endpoint='search')
+    #app.add_url_rule('/library/borrowedbooks', endpoint='borrowedbooks')
 
     from . import profile
     app.register_blueprint(profile.bp)

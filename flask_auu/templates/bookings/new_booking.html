@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<!-- Marketing messaging and featurettes
+ ================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+
+<style>
+    /* Styling für die Formularfelder */
+    .form-group {
+        display: flex;
+        align-items: center; /* Vertikale Zentrierung */
+        margin-bottom: 15px; /* Abstand zwischen den Feldern */
+    }
+
+    .form-group label {
+        width: 150px; /* Feste Breite für Labels */
+        font-weight: bold; /* Optional: Labels hervorheben */
+    }
+
+    .form-group select {
+        width: 280px; /* Dropdown-Felder gleiche Breite */
+        padding: 5px; /* Innenabstand */
+        box-sizing: border-box; /* Padding einbeziehen */
+    }
+</style>
+
+
+
+<div class="container marketing">
+
+    <!-- START THE FEATURETTES -->
+    <div class="signpost"><h1>New Booking</h1></div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">New Booking</h2>
+            <p class="lead"></p>
+
+            <form method="POST">
+        <!-- Auswahl: Abfahrtshafen -->
+
+<div class="form-group">
+        <label for="abfahrtshafen">Abfahrtshafen:</label>
+        <select name="abfahrtshafen" id="abfahrtshafen" onchange="this.form.submit()">
+            <option value="">{{ abfahrtshafen }}</option>
+            {% for hafen in abfahrtshafen_liste %}
+                <option value="{{ hafen }}" {% if hafen == abfahrtshafen %}selected{% endif %}>
+                {{ hafen }}
+</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- Zielhafen -->
+    <div class="form-group">
+        <label for="zielhafen">Zielhafen:</label>
+        <select name="zielhafen" id="zielhafen">
+            <option value="">{{ zielhafen }}</option>
+            {% for hafen in zielhafen_liste %}
+                <option value="{{ hafen }}">{{ hafen }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="datum">Datum:</label>
+        <input type="date" id="date" name="date" required>
+    </div>
+            <div class="form-group">
+    <label for="klasse">Klasse:</label>
+    <select name="klasse" id="klasse" required>
+        <!-- Option für Standardtext -->
+        <option value="" disabled selected>Wählen Sie eine Klasse</option>
+
+        <!-- Werte für Klasse -->
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+</div>
+
+        <br>
+
+        <!-- Einreichung der Buchung -->
+        <button type="submit" name= "button_submit" id="button_submit" value="pressed">Buchung erstellen</button>
+    </form>
+
+    </div>
+        <div class="col-md-5">
+            <img class="img-fluid img-thumbnail"src="{{ url_for('static', filename='pics/booking.jpeg') }}"/>
+        </div>
+
+    </div>
+
+    <!--<hr class="featurette-divider">-->
+
+    <!-- /END THE FEATURETTES -->
+
+</div><!-- /.container -->
+
+{% endblock %}
