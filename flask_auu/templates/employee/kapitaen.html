@@ -10,7 +10,7 @@
 <div class="container marketing">
 
     <!-- START THE FEATURETTES -->
-    <div class="signpost"><h1>Kapitaen Seite</h1></div>
+    <div class="signpost"><h1>Captain Page</h1></div>
 
     <hr class="featurette-divider">
 
@@ -24,13 +24,13 @@
         <table class="table table-responsive table-striped table-hover">
             <h3 class="featurette-heading"> Future passages </h3>
 			<thead>
-				<tr> 
-					<th>Passagennummer</th>
-					<th>Datum</th>
-					<th>Abfahrtshafen</th>
-					<th>Zielhafen</th>
-                    <th>Herstellername</th>
-                    <th>Typenbezeichnung</th>
+				<tr>
+                    <th>Passage Number</th>
+                    <th>Date</th>
+                    <th>Port of Departure</th>
+                    <th>Destination Port</th>
+                    <th>Manufacturer Name</th>
+                    <th>Model Designation</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -45,12 +45,12 @@
             <h4 class="featurette-heading"> Past passages </h4>
 			<thead>
 				<tr>
-					<th>Passagennummer</th>
-					<th>Datum</th>
-					<th>Abfahrtshafen</th>
-					<th>Zielhafen</th>
-                    <th>Herstellername</th>
-                    <th>Typenbezeichnung</th>
+                    <th>Passage Number</th>
+                    <th>Date</th>
+                    <th>Port of Departure</th>
+                    <th>Destination Port</th>
+                    <th>Manufacturer Name</th>
+                    <th>Model Designation</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -65,10 +65,10 @@
             <h3 class="featurette-heading"> logbooks currently checked out</h3>
 			<thead>
 				<tr>
-					<th>Logbuchnummer</th>
-					<th>Datum</th>
-					<th>Vorname</th>
-					<th>Nachname</th>
+					<th>Logbook Number</th>
+					<th>Date</th>
+					<th>Name</th>
+					<th>Surname</th>
                     <th>PANr</th>
 				</tr>
 			</thead>
@@ -94,9 +94,10 @@
         </form>
 
         </div>
-        <div class="col-md-5 d-flex justify-content-center align-items-center" style="height: 300px;" >
-            <img  alt="Image" class="img-fluid" src="{{ url_for('static', filename='pics/kaeptn_iglo.jpg') }}"/>
-        </div>
+    <div class="col-md-5  align-items-top justify-content-center">
+        <img alt="Image" class="img-fluid" src="{{ url_for('static', filename='pics/kaeptn_iglo.jpg') }}"/>
+    </div>
+
     </div>
 
     <!--<hr class="featurette-divider">-->

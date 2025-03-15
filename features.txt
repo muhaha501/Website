@@ -44,7 +44,7 @@ Weitere ideen:
 Layout (Nicht so wichtig)
 
 
-DONE  -- User und Personen bereinigen (keine höhere PANr als 2000) -- DONE
+DONE -- User und Personen bereinigen (keine höhere PANr als 2000) -- DONE
 DONE -- Usage History ausblenden -- DONE
 DONE -- Profil updaten -- DONE
 DONE -- Techniker darf nur Logbücher ausleihen von Schiffen die sie warten dürfen (und evtl. auch nur sehen) -- DONE
@@ -52,13 +52,13 @@ DONE -- Error Handling bei Logbüchern --  DONE
 DONE -- Home Button auf Firmen Logo legen -- DONE
 DONE -- Datum einheitliches Format bringen -- DONE
 
-Angefangen -- optional optimal new bookings -- Angefangen
+DONE -- optional optimal new bookings -- DONE
 Weitere Vorschläge zur Verbesserung:
-    - Errorhandling
+    DONE -- Errorhandling
     - Bilder passend zur Route
-    - Kein Datum in der Vergangenheit wählbar
+    DONE -- Kein Datum in der Vergangenheit wählbar
     - Preis Anzeige
     - uvm.
 
--- Denglisch ausbessern --
--- Altlasten bereinigen --
+DONE -- Denglisch ausbessern -- DONE
+DONE -- Altlasten bereinigen -- DONE

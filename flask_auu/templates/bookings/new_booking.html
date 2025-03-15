@@ -38,15 +38,15 @@
 
     <div class="row featurette">
         <div class="col-md-7">
-            <h2 class="featurette-heading">New Booking</h2>
+            <h3 class="featurette-heading">Create new booking</h3>
             <p class="lead"></p>
 
             <form method="POST">
         <!-- Auswahl: Abfahrtshafen -->
 
 <div class="form-group">
-        <label for="abfahrtshafen">Abfahrtshafen:</label>
-        <select name="abfahrtshafen" id="abfahrtshafen" onchange="this.form.submit()">
+        <label for="abfahrtshafen">From:</label>
+        <select name="abfahrtshafen" id="abfahrtshafen" required onchange="this.form.submit()">
             <option value="">{{ abfahrtshafen }}</option>
             {% for hafen in abfahrtshafen_liste %}
                 <option value="{{ hafen }}" {% if hafen == abfahrtshafen %}selected{% endif %}>
@@ -58,8 +58,8 @@
 
     <!-- Zielhafen -->
     <div class="form-group">
-        <label for="zielhafen">Zielhafen:</label>
-        <select name="zielhafen" id="zielhafen">
+        <label for="zielhafen">To:</label>
+        <select name="zielhafen" id="zielhafen" required>
             <option value="">{{ zielhafen }}</option>
             {% for hafen in zielhafen_liste %}
                 <option value="{{ hafen }}">{{ hafen }}</option>
@@ -68,14 +68,14 @@
     </div>
 
     <div class="form-group">
-        <label for="datum">Datum:</label>
+        <label for="datum">Date:</label>
         <input type="date" id="date" name="date" required>
     </div>
             <div class="form-group">
-    <label for="klasse">Klasse:</label>
+    <label for="klasse">Class:</label>
     <select name="klasse" id="klasse" required>
         <!-- Option für Standardtext -->
-        <option value="" disabled selected>Wählen Sie eine Klasse</option>
+        <option value="" disabled selected>Choose a class</option>
 
         <!-- Werte für Klasse -->
         <option value="1">1</option>
@@ -87,7 +87,7 @@
         <br>
 
         <!-- Einreichung der Buchung -->
-        <button type="submit" name= "button_submit" id="button_submit" value="pressed">Buchung erstellen</button>
+        <button type="submit" name= "button_submit" id="button_submit" value="pressed">Create booking</button>
     </form>
 
     </div>
