@@ -1,10 +1,9 @@
 /* SQLite Syntax */
-/* Last Rev: 05.03.2025 */
-/* todo: implementierung folgepassage missing */
-/* todo: ueberpruefung von: ON DELETE CASCADE */
+/* last change 10 March 25 */
 
 
-/* falls wir das genauso uebernehmen */
+
+/* implement user */
 DROP TABLE IF EXISTS user;
 
 CREATE TABLE IF NOT EXISTS "user" (
@@ -68,8 +67,6 @@ CREATE TABLE IF NOT EXISTS "Passage" (
     "Zielhafen" TEXT(20),
     CONSTRAINT pk_Passage PRIMARY KEY (Passagennummer)
 );
-
-/* implementierung folgepassage missing */
 
 CREATE TABLE IF NOT EXISTS "Passagier" (
     "PassagierNr" TEXT(10),

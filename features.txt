@@ -16,24 +16,24 @@ Als Mitarbeiter:
 DONE -- Schiffsytpen Anzeigen welche von Techniker gewartet werden dürfen   -- DONE
 DONE -- Bisherige Fahrten anzeigen (ähnlich wie das exams im Beispiel)      -- DONE
 DONE -- Zukünftige Fahrten anzeigen                                         -- DONE
-Suche von Booten (ähnlich wie das Buch suchen)
+
 
 ===================================================================================
 >> Mittelwichtige Features: 
 
 Als Mitarbeiter: 
--- Begonnen Logbuch ausleihen (ähnlich wie das ausleihen der Bücher im Beispiel)
+DONE -- Logbuch ausleihen (ähnlich wie das ausleihen der Bücher im Beispiel) -- DONE
 
 ===================================================================================
 >> Nicht so wichtige Features:
 
 Als Passagier:
-Ansehen möglicher Buchungen (in der Zukunft)
-Buchungen durchführen? (Achtung wegen Überschneidungen)
+DONE -- Ansehen möglicher Buchungen (in der Zukunft)                        -- DONE
+DONE -- Buchungen durchführen                                               -- DONE
 
 Als Mitarbeiter:
--- Begonnen Stats als Kapitän (Meilen, Anzahl Fahrten mit Boot)
--- Begonnen Same für Techniker
+DONE -- Stats als Kapitän                                                   -- DONE
+DONE -- Same für Techniker                                                  -- DONE
 
 Allgemein:
 DONE -- Registration als Passagier                                          -- DONE

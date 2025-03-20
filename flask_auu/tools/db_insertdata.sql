@@ -1,6 +1,5 @@
 /* SQLite syntax*/
-/* last update 07 Maerz 23 */
-/* syntax differs from univ lib in https://edu.dedisys.org/WBTServer/faces/main.jsp */
+/* last change 13 March 25 */
 
 /*pw: Go4one! */ /* dieser wird ein Passagier */
 Insert into user (username, password) values ('1001', 'pbkdf2:sha256:260000$TE7rfiidZO86orwh$7e0f8049432d0ab7842f45e2d1de68ed3c61fbd01655ba9a5d093e350cf9edfa');
